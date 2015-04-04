@@ -13,8 +13,10 @@ public class HomeWork {
 
     /**
      * Метод решает квадратное уравнение
+     * pow(x, 2) - ((perimeter / 2) * x) + area = 0
+     *
      * @param perimeter Периметр прямоугольника
-     * @param area Площадь прямоугольника
+     * @param area      Площадь прямоугольника
      */
     public static void resolve(double perimeter, double area) {
         double width;
