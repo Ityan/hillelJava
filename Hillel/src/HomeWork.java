@@ -9,8 +9,10 @@ public class HomeWork {
         double area;
 
         Scanner in = new Scanner(System.in);
+
         System.out.print("Insert perimeter: ");
         perimeter = in.nextDouble();
+        
         System.out.print("Insert area: ");
         area = in.nextDouble();
 
