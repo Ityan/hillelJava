@@ -11,7 +11,7 @@ public class HomeWork {
 
     /**
      * Method solves the quadratic equation
-     * pow(x, 2) - ((perimeter / 2) * x) + area = 0
+     * x^2 - ((perimeter / 2) * x) + area = 0
      *
      * @param perimeter perimeter of a rectangle
      * @param area      area of a rectangle
