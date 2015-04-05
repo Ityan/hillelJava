@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /**
- * Created by ITyan on 04.04.2015.
+ * @author ITyan on 04.04.2015.
  */
 public class HomeWork {
     public static void main(String[] args) {
@@ -12,7 +12,7 @@ public class HomeWork {
 
         System.out.print("Insert perimeter: ");
         perimeter = in.nextDouble();
-        
+
         System.out.print("Insert area: ");
         area = in.nextDouble();
 
