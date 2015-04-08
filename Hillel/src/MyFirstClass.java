@@ -1,5 +1,6 @@
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -104,7 +105,7 @@ public class MyFirstClass {
         for (int element : newIntArray) {
             System.out.println(element);
         }
-        */
+
 
         Scanner in = new Scanner(System.in);
         while (!in.hasNextInt()) {//проверка на ввод типа int
@@ -113,6 +114,11 @@ public class MyFirstClass {
         do {
             //some code
         } while (true);
+         */
+
+        Random rnd = new Random();
+        int randomNumber = rnd.nextInt(10);
+        System.out.println(randomNumber);
     }
 
     public static boolean attendJavaCourses() {
