@@ -1,9 +1,11 @@
+package lesson_1;
+
 import java.util.Scanner;
 
 /**
  * @author ITyan on 04.04.2015.
  */
-public class HomeWork {
+public class RectangleDemo {
     public static void main(String[] args) {
         double perimeter;
         double area;
