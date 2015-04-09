@@ -39,7 +39,8 @@ public class HomeWork {
             height = ((perimeter / 2) - Math.sqrt(d)) / 2;
             System.out.println("width = " + width + "\nheight = " + height);
         } else if (d == 0) {
-            width = height = (perimeter / 2) / 2;
+            width = (perimeter / 2) / 2;
+            height = width;
             System.out.println("width = " + width + "\nheight = " + height);
         } else {
             System.out.println("Equation has no solution!");
