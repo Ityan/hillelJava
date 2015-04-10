@@ -3,7 +3,7 @@ package lesson_2;
 import java.util.Scanner;
 
 /**
- * Created by Igor on 09.04.2015.
+ * @author ITyan on 09.04.2015.
  */
 public class SuperXORCrypt {
     public static void main(String[] args) {
@@ -34,11 +34,8 @@ public class SuperXORCrypt {
         char[] textToCharArray = text.toCharArray();
         int j = 0;
         for (int i = 0; i < textToCharArray.length; i++) {
-            if (j > key.length - 1) {
-                j = 0;
-            }
+            j = i % key.length;
             textToCharArray[i] ^= key[j];
-            j++;
         }
 
         String encrypted = String.copyValueOf(textToCharArray);

@@ -14,7 +14,17 @@ public class ArraysSort {
         int size = in.nextInt();
 
         double[] array1 = createdRandomArray(size);
+        System.out.println("Original array:");
+        for (double i : array1) {
+            System.out.print("[" + i + "]" + " ");
+        }
+
         bubbleSort(array1);
+        System.out.println("\n" +
+                "Sorted array:");
+        for (double i : array1) {
+            System.out.print("[" + i + "]" + " ");
+        }
     }
 
     /**
@@ -25,10 +35,8 @@ public class ArraysSort {
      */
     public static double[] createdRandomArray(int arraySize) {
         double[] array = new double[arraySize];
-        System.out.println("Original array:");
         for (int i = 0; i < array.length; i++) {
             array[i] = (Math.random() * 100);
-            System.out.print("[" + array[i] + "]" + " ");
         }
         return array;
     }
@@ -47,10 +55,6 @@ public class ArraysSort {
                     array[j + 1] = tmp;
                 }
             }
-        }
-        System.out.println("\nSorted array:");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print("[" + array[i] + "]" + " ");
         }
     }
 }
