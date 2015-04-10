@@ -32,13 +32,12 @@ public class SuperXORCrypt {
 
     public static String crypt(String text, char[] key) {
         char[] textToCharArray = text.toCharArray();
-        int j = 0;
+        int j;
         for (int i = 0; i < textToCharArray.length; i++) {
             j = i % key.length;
             textToCharArray[i] ^= key[j];
         }
 
-        String encrypted = String.copyValueOf(textToCharArray);
-        return encrypted;
+        return String.copyValueOf(textToCharArray);
     }
 }

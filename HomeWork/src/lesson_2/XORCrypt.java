@@ -44,8 +44,7 @@ public class XORCrypt {
             textToCharArray[i] ^= key;
         }
 
-        String encrypted = String.copyValueOf(textToCharArray);
-        return encrypted;
+        return String.copyValueOf(textToCharArray);
     }
 
 }
