@@ -46,5 +46,4 @@ public class XORCrypt {
 
         return String.copyValueOf(textToCharArray);
     }
-
 }

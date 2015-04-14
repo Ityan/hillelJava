@@ -13,6 +13,8 @@ public class OOP {
         cat2 = new Cat("Tom", 2);
 
         System.out.println(cat1.equals(cat2));
+
+        oopIntro();
     }
 
     public static void oopIntro() {
