@@ -4,7 +4,7 @@ package lesson_3.RectangleTask;
 /**
  * @author ITyan on 14.04.2015.
  */
-public class RectangleTest {
+public class MainRectangle {
     public static void main(String[] args) {
         RectangleTask rectTask1 = new RectangleTask(20, 25);
         RectangleTask rectTask2 = new RectangleTask(20, 25);
