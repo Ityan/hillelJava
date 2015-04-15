@@ -8,12 +8,7 @@ import java.util.Arrays;
 public class Cat {
     private String name;
 
-    public void setAge(int age) {
-        if (age < 0) {
-            throw new RuntimeException("Incorrect age value: " + age);
-        }
-        this.age = age;
-    }
+
 
     private int age;
     private Vaccine[] vaccines = new Vaccine[10];
@@ -49,14 +44,14 @@ public class Cat {
         return result;
     }
 
-    public void acceptVaccine(String vaccine) {
+    public void acceptVaccine(Vaccine vaccine) {
         vaccines[vaccineCount] = vaccine;
         vaccineCount++;
     }
 
     public static int pawCount() {
         Cat cat = new Cat();
-        cat.acceptVaccine("afg");
+        cat.acceptVaccine(Vaccine.ASDD);
         return 4;
     }
 
@@ -81,5 +76,12 @@ public class Cat {
 
     public void setOwnerName(String ownerName) {
         this.ownerName = ownerName;
+    }
+
+    public void setAge(int age) {
+        if (age < 0) {
+            throw new RuntimeException("Incorrect age value: " + age);
+        }
+        this.age = age;
     }
 }
