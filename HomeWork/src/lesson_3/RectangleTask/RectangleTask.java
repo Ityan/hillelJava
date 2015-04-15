@@ -26,13 +26,8 @@ public class RectangleTask {
      * @return true if a solution is possible
      */
     public boolean hasSolution() {
-        double d = getDiscriminant();
 
-        if (d < 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return getDiscriminant() >= 0;
     }
 
     /**
@@ -42,15 +37,14 @@ public class RectangleTask {
      * @return a new object of class Rectangle
      */
     public Rectangle getRectangle() {
-        double width = 0;
-        double height = 0;
         if (hasSolution()) {
             //counting the height and width through the quadratic equation
-            width = ((perimeter / 2) + Math.sqrt(getDiscriminant())) / 2;
-            height = ((perimeter / 2) - Math.sqrt(getDiscriminant())) / 2;
+            double width = ((perimeter / 2) + Math.sqrt(getDiscriminant())) / 2;
+            double height = ((perimeter / 2) - Math.sqrt(getDiscriminant())) / 2;
+
+            return new Rectangle(width, height);
         } else {
             return null;
         }
-        return new Rectangle(width, height);
     }
 }

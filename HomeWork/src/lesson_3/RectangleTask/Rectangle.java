@@ -21,17 +21,16 @@ public class Rectangle {
     }
 
     public boolean equals(Object other) {
-        if (other instanceof Rectangle) {
-            Rectangle otherRect = (Rectangle) other;
-            if (this.width != otherRect.width) {
-                return false;
-            }
-            if (this.height != otherRect.height) {
-                return false;
-            }
-            return true;
-        } else {
+        if (!(other instanceof Rectangle)) {
             return false;
         }
+        Rectangle otherRect = (Rectangle) other;
+        if ((this.width != otherRect.width) || (this.width != otherRect.height)) {
+            return false;
+        }
+        if ((this.height != otherRect.height) || (this.height != otherRect.width)) {
+            return false;
+        }
+        return true;
     }
 }
