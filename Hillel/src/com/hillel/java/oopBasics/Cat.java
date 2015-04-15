@@ -1,14 +1,24 @@
+package com.hillel.java.oopBasics;
+
 import java.util.Arrays;
-import java.util.Objects;
 
 /**
  * Created by ITyan on 10.04.2015.
  */
 public class Cat {
-    String name;
-    int age;
-    String[] vaccines = new String[10];
-    int vaccineCount = 0;
+    private String name;
+
+    public void setAge(int age) {
+        if (age < 0) {
+            throw new RuntimeException("Incorrect age value: " + age);
+        }
+        this.age = age;
+    }
+
+    private int age;
+    private Vaccine[] vaccines = new Vaccine[10];
+    private int vaccineCount = 0;
+    private String ownerName;
 
     public Cat() {
 
@@ -23,8 +33,16 @@ public class Cat {
         this.age = age;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String newName) {
+        name = newName;
+    }
+
     public String toString() {
-        String result = "Cat ";
+        String result = "com.hillel.java.oopBasics.Cat ";
         result += name;
         result += age;
         result += Arrays.toString(vaccines);
@@ -36,7 +54,7 @@ public class Cat {
         vaccineCount++;
     }
 
-    public static int mawCount() {
+    public static int pawCount() {
         Cat cat = new Cat();
         cat.acceptVaccine("afg");
         return 4;
@@ -55,5 +73,13 @@ public class Cat {
         } else {
             return false;
         }
+    }
+
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
     }
 }
