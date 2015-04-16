@@ -21,7 +21,7 @@ public class Vet {
     public void makeVaccine() {
         for (int i = 0; i < registered; i++) {
             Cat cat = vetList[i];
-            cat.acceptVaccine("SVG");
+            cat.acceptVaccine(Vaccine.ASDD);
         }
     }
 }

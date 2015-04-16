@@ -6,8 +6,8 @@ import java.util.Arrays;
  * @author ITyan 14.04.2015.
  */
 public class ImprovedArray {
-    String[] text = new String[10];
-    int countElement = 0;
+    private String[] text = new String[10];
+    private int countElement = 0;
 
     /**
      * Adds a string to an array
@@ -30,7 +30,7 @@ public class ImprovedArray {
      */
     public String get(int index) {
         if (index > countElement) {
-            return null;
+            throw new RuntimeException("Incorrect index of array: " + index);
         } else {
             return text[index];
         }

@@ -25,10 +25,10 @@ public class Rectangle {
             return false;
         }
         Rectangle otherRect = (Rectangle) other;
-        if ((this.width != otherRect.width) || (this.width != otherRect.height)) {
+        if (this.width != otherRect.width) {
             return false;
         }
-        if ((this.height != otherRect.height) || (this.height != otherRect.width)) {
+        if (this.height != otherRect.height) {
             return false;
         }
         return true;
