@@ -17,18 +17,18 @@ public class GuessTheNumber {
      * @param yourNumber inputted number
      * @return text for the definition of victory
      */
-    public String checkWin(int yourNumber) {
-        String text;
+    public CheckResult checkWin(int yourNumber) {
+        CheckResult result;
         if (yourNumber > unknownNumber) {
-            text = "more";
+            result = CheckResult.MORE;
             count++;
         } else if (yourNumber < unknownNumber) {
-            text = "less";
+            result = CheckResult.LESS;
             count++;
         } else {
-            text = "win";
+            result = CheckResult.WIN;
         }
-        return text;
+        return result;
     }
 
     /**

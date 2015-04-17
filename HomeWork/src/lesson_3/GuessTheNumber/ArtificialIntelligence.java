@@ -11,13 +11,13 @@ public class ArtificialIntelligence {
     /**
      * Find a number
      *
-     * @param text defines the upper and lower limits search
+     * @param result defines the upper and lower limits search
      * @return number, which must be equal to the required number
      */
-    public int findNumber(String text) {
-        if (text.equals("less")) {
+    public int findNumber(CheckResult result) {
+        if (result.equals(CheckResult.LESS)) {
             bottom = number;
-        } else if (text.equals("more")) {
+        } else if (result.equals(CheckResult.MORE)) {
             top = number;
         }
         number = ((top - bottom) / 2) + bottom;
