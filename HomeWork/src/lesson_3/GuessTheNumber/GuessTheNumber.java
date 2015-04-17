@@ -1,7 +1,6 @@
 package lesson_3.GuessTheNumber;
 
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * @author ITyan on 14.04.2015.
@@ -10,41 +9,45 @@ public class GuessTheNumber {
 
     static final int MAX_VALUE = 10;
     static final int MIN_VALUE = 1;
-    private int yourNumber;
     private int unknownNumber;
-    private int count = 1;
+    private int count;
 
-
-    public void checkWin(int yourNumber) {
+    /**
+     * checks the condition for victory
+     * @param yourNumber inputted number
+     * @return text for the definition of victory
+     */
+    public String checkWin(int yourNumber) {
+        String text;
         if (yourNumber > unknownNumber) {
-            System.out.println("Your number: " + yourNumber + " is more.");
+            text = "more";
             count++;
         } else if (yourNumber < unknownNumber) {
-            System.out.println("Your number: " + yourNumber + " is less.");
+            text = "less";
             count++;
         } else {
-            System.out.println("Congratulations!!!\nYou guessed number " + unknownNumber
-                    + " for " + count + " attempts");
+            text = "win";
         }
+        return text;
     }
 
-    public int insertNumber() {
-        Scanner in = new Scanner(System.in);
-        System.out.print("Insert your number: ");
-        if (in.hasNextInt()) {
-            yourNumber = in.nextInt();
-        } else {
-            System.out.println("Your insert not integer!");
-        }
-        return yourNumber;
-    }
-
-    public void guessTime() {
+    /**
+     * generates a random number in the range
+     * from MIN_VALUE to MAX_VALUE
+     *
+     * @return random number
+     */
+    public int getRandomNumber() {
         Random rnd = new Random();
         unknownNumber = rnd.nextInt(MAX_VALUE) + 1;
-        do {
-            yourNumber = insertNumber();
-            checkWin(yourNumber);
-        } while (yourNumber != unknownNumber);
+        return unknownNumber;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getCount() {
+        return count;
     }
 }
