@@ -19,6 +19,9 @@ public class ArtificialIntelligence {
             bottom = number;
         } else if (result < 0) {
             top = number;
+            if (top == 9) {
+                top = 10;
+            }
         }
         number = ((top - bottom) / 2) + bottom;
         return number;
