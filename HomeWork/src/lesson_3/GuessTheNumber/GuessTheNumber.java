@@ -14,21 +14,16 @@ public class GuessTheNumber {
 
     /**
      * checks the condition for victory
+     * if result = 1 your number is more
+     * if result = -1 your number is less
+     * if result = 0 your number is guess
+     *
      * @param yourNumber inputted number
      * @return text for the definition of victory
      */
-    public CheckResult checkWin(int yourNumber) {
-        CheckResult result;
-        if (yourNumber > unknownNumber) {
-            result = CheckResult.MORE;
-            count++;
-        } else if (yourNumber < unknownNumber) {
-            result = CheckResult.LESS;
-            count++;
-        } else {
-            result = CheckResult.WIN;
-        }
-        return result;
+    public int checkWin(int yourNumber) {
+        count++;
+        return unknownNumber - yourNumber;
     }
 
     /**

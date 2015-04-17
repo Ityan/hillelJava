@@ -14,10 +14,10 @@ public class ArtificialIntelligence {
      * @param result defines the upper and lower limits search
      * @return number, which must be equal to the required number
      */
-    public int findNumber(CheckResult result) {
-        if (result.equals(CheckResult.LESS)) {
+    public int findNumber(int result) {
+        if (result > 0) {
             bottom = number;
-        } else if (result.equals(CheckResult.MORE)) {
+        } else if (result < 0) {
             top = number;
         }
         number = ((top - bottom) / 2) + bottom;

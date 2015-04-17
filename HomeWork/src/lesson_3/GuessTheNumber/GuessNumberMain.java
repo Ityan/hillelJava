@@ -20,31 +20,31 @@ public class GuessNumberMain {
     }
 
     public static void pcVSpc(GuessTheNumber gNumb, ArtificialIntelligence ai, int unknownNumber) {
-        CheckResult result = CheckResult.NULL;
-        gNumb.setCount(1);
+        int result = 0;
+        gNumb.setCount(0);
         System.out.println("\nPC guesses the number from " + gNumb.MIN_VALUE + " to " + gNumb.MAX_VALUE);
 
         do {
-            System.out.print("Insert your number: ");
+            System.out.print("PC choice number: ");
 
             int number = ai.findNumber(result);
             result = gNumb.checkWin(number);
 
-            if (result.equals(CheckResult.LESS)) {
+            if (result > 0) {
                 System.out.println("Your number: " + number + " is less.");
-            } else if (result.equals(CheckResult.MORE)) {
+            } else if (result < 0) {
                 System.out.println("Your number: " + number + " is more.");
             } else {
                 System.out.println("Congratulations!!!\nYou guessed number " + unknownNumber
                         + " for " + gNumb.getCount() + " attempts");
             }
-        } while (!(result.equals(CheckResult.WIN)));
+        } while (!(result == 0));
     }
 
     public static void pcVShuman(GuessTheNumber gNumb, int unknownNumber) {
-        CheckResult result;
+        int result;
         Scanner in = new Scanner(System.in);
-        gNumb.setCount(1);
+        gNumb.setCount(0);
         System.out.println("Guess number from " + gNumb.MIN_VALUE + " to " + gNumb.MAX_VALUE);
         do {
             System.out.print("Insert your number: ");
@@ -52,14 +52,14 @@ public class GuessNumberMain {
             int number = in.nextInt();
             result = gNumb.checkWin(number);
 
-            if (result.equals(CheckResult.LESS)) {
+            if (result > 0) {
                 System.out.println("Your number: " + number + " is less.");
-            } else if (result.equals(CheckResult.MORE)) {
+            } else if (result < 0) {
                 System.out.println("Your number: " + number + " is more.");
             } else {
                 System.out.println("Congratulations!!!\nYou guessed number " + unknownNumber
                     + " for " + gNumb.getCount() + " attempts");
             }
-        } while (!(result.equals(CheckResult.WIN)));
+        } while (!(result == 0));
     }
 }
