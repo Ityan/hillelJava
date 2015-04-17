@@ -14,8 +14,8 @@ public class GuessTheNumber {
 
     /**
      * checks the condition for victory
-     * if result = 1 your number is more
-     * if result = -1 your number is less
+     * if result positive number your number is more
+     * if result negative number your number is less
      * if result = 0 your number is guess
      *
      * @param yourNumber inputted number

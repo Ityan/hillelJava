@@ -15,11 +15,15 @@ public class ImprovedArray {
      * @param value included string
      */
     public void add(String value) {
-        if (text.length == countElement + 1) {
-            text = Arrays.copyOf(text, text.length * 2);
+        if (text.length == countElement) {
+            resize();
         }
         text[countElement] = value;
         countElement++;
+    }
+
+    public void resize() {
+        text = Arrays.copyOf(text, text.length * 2);
     }
 
     /**
@@ -30,7 +34,7 @@ public class ImprovedArray {
      */
     public String get(int index) {
         if (index > countElement) {
-            throw new RuntimeException("Incorrect index of array: " + index);
+            throw new IndexOutOfBoundsException("Incorrect index of array: " + index+ ", size: " + countElement);
         } else {
             return text[index];
         }
@@ -45,25 +49,28 @@ public class ImprovedArray {
 
     public boolean equals(Object other) {
         if (other instanceof ImprovedArray) {
-            ImprovedArray otherArray = (ImprovedArray) other;
-            if (this.text.length != otherArray.text.length) {
-                return false;
-            }
-            for (int i = 0; i < text.length; i++) {
-                if (!this.text[i].equals(otherArray.text[i])) {
-                    return false;
-                }
-            }
-            return true;
-        } else {
             return false;
         }
+        ImprovedArray otherArray = (ImprovedArray) other;
+
+        if (this.text.length != otherArray.text.length) {
+            return false;
+        }
+        for (int i = 0; i < size(); i++) {
+            if (!this.text[i].equals(otherArray.text[i])) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public String toString() {
         String result = "[";
         for (int i = 0; i < size(); i++) {
-            result += "[" + get(i) + "]";
+            result += get(i);
+            if (i + 1 < size()) {
+                result += ", ";
+            }
         }
         result += "]";
         return result;
