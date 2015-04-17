@@ -7,12 +7,13 @@ import java.util.Scanner;
  */
 public class GuessNumberMain {
     public static void main(String[] args) {
+
         GuessTheNumber gNumb = new GuessTheNumber();
         ArtificialIntelligence ai = new ArtificialIntelligence();
-        Scanner in = new Scanner(System.in);
+
         int unknownNumber = gNumb.getRandomNumber();
 
-        pcVShuman(gNumb, in, unknownNumber);
+        pcVShuman(gNumb, unknownNumber);
         
         pcVSpc(gNumb, ai, unknownNumber);
 
@@ -40,7 +41,8 @@ public class GuessNumberMain {
         } while (!(answerText.equals("win")));
     }
 
-    public static void pcVShuman(GuessTheNumber gNumb, Scanner in, int unknownNumber) {
+    public static void pcVShuman(GuessTheNumber gNumb, int unknownNumber) {
+        Scanner in = new Scanner(System.in);
         gNumb.setCount(1);
         String answerText;
         System.out.println("Guess number from " + gNumb.MIN_VALUE + " to " + gNumb.MAX_VALUE);
