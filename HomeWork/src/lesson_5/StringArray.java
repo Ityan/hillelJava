@@ -1,6 +1,5 @@
 package lesson_5;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
