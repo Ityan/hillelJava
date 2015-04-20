@@ -25,7 +25,6 @@ public class GuessNumberMain {
         System.out.println("\nPC guesses the number from " + gNumb.MIN_VALUE + " to " + gNumb.MAX_VALUE);
 
         do {
-            System.out.print("PC choice number: ");
 
             int number = ai.findNumber(result);
             result = gNumb.checkWin(number);
