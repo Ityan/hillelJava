@@ -21,20 +21,20 @@ public class StringArray {
     }
 
     public void add(int index, String value) {
-        String[] temp = new String[array.length + 1];
+        String[] tmp = new String[array.length + 1];
 
         for (int i = 0; i < array.length; i++) {
             if (array.length == counter) {
                 resize();
             }
             if (i < index) {
-                temp[i] = array[i];
+                tmp[i] = array[i];
             } else {
-                temp[i + 1] = array[i];
+                tmp[i + 1] = array[i];
             }
         }
-        temp[index] = value;
-        array = temp;
+        tmp[index] = value;
+        array = tmp;
         counter++;
     }
 
