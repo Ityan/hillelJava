@@ -20,9 +20,6 @@ public class StringArray {
     }
 
     public void add(int index, String value) {
-        if (array.length == counter) {
-            resize();
-        }
         String[] tmp = new String[counter + 1];
         for (int i = 0; i < size(); i++) {
             if (i < index) {
