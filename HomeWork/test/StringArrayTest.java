@@ -26,6 +26,8 @@ public class StringArrayTest {
         assertEquals("A", array.get(0));
         assertEquals("C", array.get(1));
         assertEquals("D", array.get(2));
+
+        System.out.println(array);
     }
 
     @Test
@@ -39,7 +41,9 @@ public class StringArrayTest {
         array.add(4, "E");
 
         assertEquals(5, array.size());
+        assertEquals("A", array.get(0));
         assertEquals("B", array.get(1));
+        assertEquals("C", array.get(2));
         assertEquals("D", array.get(3));
         assertEquals("E", array.get(4));
     }

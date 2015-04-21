@@ -19,13 +19,12 @@ public class StringArray {
         counter++;
     }
 
-    public void add(int index, String value) {
-        String[] tmp = new String[array.length + 1];
-
-        for (int i = 0; i < array.length; i++) {
-            if (array.length == counter) {
-                resize();
-            }
+    public void add(int index, String value) {;
+        if (array.length == counter) {
+            resize();
+        }
+        String[] tmp = new String[counter + 1];
+        for (int i = 0; i < size(); i++) {
             if (i < index) {
                 tmp[i] = array[i];
             } else {
@@ -47,7 +46,7 @@ public class StringArray {
     public String remove(int index) {
         String returnValue = array[index];
 
-        for (int i = index; i < array.length - 1; i++) {
+        for (int i = index; i < size(); i++) {
             array[i] = array[i + 1];
         }
         counter--;
