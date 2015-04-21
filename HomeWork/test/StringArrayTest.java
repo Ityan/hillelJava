@@ -26,8 +26,6 @@ public class StringArrayTest {
         assertEquals("A", array.get(0));
         assertEquals("C", array.get(1));
         assertEquals("D", array.get(2));
-
-        System.out.println(array);
     }
 
     @Test
