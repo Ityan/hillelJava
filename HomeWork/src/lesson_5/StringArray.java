@@ -3,7 +3,7 @@ package lesson_5;
 import java.util.Arrays;
 
 /**
- * Created by ITyan on 17.04.2015.
+ * @author ITyan on 17.04.2015.
  */
 public class StringArray {
 
@@ -19,7 +19,7 @@ public class StringArray {
         counter++;
     }
 
-    public void add(int index, String value) {;
+    public void add(int index, String value) {
         if (array.length == counter) {
             resize();
         }
