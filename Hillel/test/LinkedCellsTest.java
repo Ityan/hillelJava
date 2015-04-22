@@ -1,10 +1,13 @@
 import com.hillel.java.oopBasics.LinkedCells;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by ITyan on 17.04.2015.
  */
 public class LinkedCellsTest {
-    public static void main(String[] args) {
+    @Test
+    public void addTest() {
         LinkedCells list = new LinkedCells();
         System.out.println("Empty list: " + list);
 
@@ -13,5 +16,6 @@ public class LinkedCellsTest {
 
         list.add("B");
         System.out.println("Two element list: " + list);
+
     }
 }

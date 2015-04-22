@@ -1,7 +1,7 @@
 package com.hillel.java.oopBasics;
 
 /**
- * Created by ITyan on 17.04.2015.
+ * @author ITyan on 17.04.2015.
  */
 public class Cell {
 
