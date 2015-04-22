@@ -17,7 +17,7 @@ public class Cell {
     }
 
     public Cell getNext() {
-        return next;
+       return next;
     }
 
     public String getValue() {

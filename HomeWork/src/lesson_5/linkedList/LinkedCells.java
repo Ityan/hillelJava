@@ -25,18 +25,14 @@ public class LinkedCells {
 
     public void add(int index, String value) {
         Cell current = new Cell(value);
-        while (index != 0) {
-            if (index == 1) {
-                current.setNext(head.getNext());
-                head.setNext(current);
-            }
-            index--;
-        }
+        current.setNext(getCell(index));
+        getCell(index - 1).setNext(current);
         counter++;
     }
 
     public String remove(int index) {
         String removedElement = get(index);
+        getCell(index - 1).setNext(getCell(index + 1));
         counter--;
         return removedElement;
     }
@@ -53,6 +49,20 @@ public class LinkedCells {
             currentIndex++;
         }
         return current.getValue();
+    }
+
+    public Cell getCell(int index) {
+        if (index < 0 || index >= size()) {
+            throw new IndexOutOfBoundsException
+                    ("size: " + size() +", index: " + index);
+        }
+        Cell current = head;
+        int currentIndex = 0;
+        while (current != null && currentIndex < index) {
+            current = current.getNext();
+            currentIndex++;
+        }
+        return current;
     }
 
     public int size() {
