@@ -25,8 +25,13 @@ public class LinkedCells {
 
     public void add(int index, String value) {
         Cell current = new Cell(value);
-        current.setNext(getCell(index));
-        getCell(index - 1).setNext(current);
+        if (index == 0) {
+            current.setNext(head.getNext());
+            head = current;
+        } else {
+            current.setNext(getCell(index));
+            getCell(index - 1).setNext(current);
+        }
         counter++;
     }
 
