@@ -1,7 +1,5 @@
 package lesson_5.linkedList;
 
-import java.util.LinkedList;
-
 /**
  * Created by Igor on 21.04.2015.
  */
@@ -31,13 +29,18 @@ public class LinkedCells {
     }
 
     public String remove(int index) {
-        String removedElement = get(index);
-        getCell(index - 1).setNext(getCell(index + 1));
+        String removedElement = getCellValue(index);
+        if (index == 0) {
+            head = head.getNext();
+        }
+        else {
+            getCell(index - 1).setNext(getCell(index + 1));
+        }
         counter--;
         return removedElement;
     }
 
-    public String get(int index) {
+    public String getCellValue(int index) {
         if (index < 0 || index >= size()) {
             throw new IndexOutOfBoundsException
                     ("size: " + size() +", index: " + index);

@@ -17,17 +17,17 @@ public class LinkedCellsTest {
         linkedCells.add("C");
 
         assertEquals(3, linkedCells.size());
-        assertEquals("A", linkedCells.get(0));
-        assertEquals("B", linkedCells.get(1));
-        assertEquals("C", linkedCells.get(2));
+        assertEquals("A", linkedCells.getCellValue(0));
+        assertEquals("B", linkedCells.getCellValue(1));
+        assertEquals("C", linkedCells.getCellValue(2));
 
         linkedCells.add(2, "Z");
 
         assertEquals(4, linkedCells.size());
-        assertEquals("A", linkedCells.get(0));
-        assertEquals("B", linkedCells.get(1));
-        assertEquals("Z", linkedCells.get(2));
-        assertEquals("C", linkedCells.get(3));
+        assertEquals("A", linkedCells.getCellValue(0));
+        assertEquals("B", linkedCells.getCellValue(1));
+        assertEquals("Z", linkedCells.getCellValue(2));
+        assertEquals("C", linkedCells.getCellValue(3));
     }
 
     @Test
@@ -44,9 +44,17 @@ public class LinkedCellsTest {
         assertEquals("B", removedElement);
 
         assertEquals(3, linkedCells.size());
-        assertEquals("A", linkedCells.get(0));
-        assertEquals("C", linkedCells.get(1));
-        assertEquals("D", linkedCells.get(2));
+        assertEquals("A", linkedCells.getCellValue(0));
+        assertEquals("C", linkedCells.getCellValue(1));
+        assertEquals("D", linkedCells.getCellValue(2));
+
+        removedElement = linkedCells.remove(0);
+
+        assertEquals("A", removedElement);
+
+        assertEquals(2, linkedCells.size());
+        assertEquals("C", linkedCells.getCellValue(0));
+        assertEquals("D", linkedCells.getCellValue(1));
     }
 
     @Test
