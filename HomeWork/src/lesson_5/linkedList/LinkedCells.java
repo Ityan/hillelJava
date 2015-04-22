@@ -42,10 +42,13 @@ public class LinkedCells {
 
     public String remove(int index) {
         String removedElement = getCellValue(index);
-        if (index == 0) {
+        if (size() == 1) {
+            head = null;
+        } else if (index == 0) {
             head = head.getNext();
-        }
-        else {
+        } else if (index == size() - 1) {
+            getCell(index - 1).setNext(null);
+        } else {
             getCell(index - 1).setNext(getCell(index + 1));
         }
         counter--;

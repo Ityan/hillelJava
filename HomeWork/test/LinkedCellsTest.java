@@ -47,7 +47,6 @@ public class LinkedCellsTest {
         String removedElement = linkedCells.remove(1);
 
         assertEquals("B", removedElement);
-
         assertEquals(3, linkedCells.size());
         assertEquals("A", linkedCells.getCellValue(0));
         assertEquals("C", linkedCells.getCellValue(1));
@@ -56,10 +55,15 @@ public class LinkedCellsTest {
         removedElement = linkedCells.remove(0);
 
         assertEquals("A", removedElement);
-
         assertEquals(2, linkedCells.size());
         assertEquals("C", linkedCells.getCellValue(0));
         assertEquals("D", linkedCells.getCellValue(1));
+
+        removedElement = linkedCells.remove(1);
+
+        assertEquals("D", removedElement);
+        assertEquals(1, linkedCells.size());
+        assertEquals("C", linkedCells.getCellValue(0));
     }
 
     @Test
