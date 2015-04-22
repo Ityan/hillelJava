@@ -13,20 +13,25 @@ public class LinkedCellsTest {
         LinkedCells linkedCells = new LinkedCells();
 
         linkedCells.add("A");
-        linkedCells.add("B");
         linkedCells.add("C");
+
+        assertEquals(2, linkedCells.size());
+        assertEquals("A", linkedCells.getCellValue(0));
+        assertEquals("C", linkedCells.getCellValue(1));
+
+        linkedCells.add(1, "B");
 
         assertEquals(3, linkedCells.size());
         assertEquals("A", linkedCells.getCellValue(0));
         assertEquals("B", linkedCells.getCellValue(1));
         assertEquals("C", linkedCells.getCellValue(2));
 
-        linkedCells.add(2, "Z");
+        linkedCells.add(0, "X");
 
         assertEquals(4, linkedCells.size());
-        assertEquals("A", linkedCells.getCellValue(0));
-        assertEquals("B", linkedCells.getCellValue(1));
-        assertEquals("Z", linkedCells.getCellValue(2));
+        assertEquals("X", linkedCells.getCellValue(0));
+        assertEquals("A", linkedCells.getCellValue(1));
+        assertEquals("B", linkedCells.getCellValue(2));
         assertEquals("C", linkedCells.getCellValue(3));
     }
 
