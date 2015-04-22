@@ -30,7 +30,7 @@ public class LinkedCells {
             head = current;
             current.setNext(tmp);
 
-        } else if (index == (size() - 1)) {
+        } else if (index == size()) {
             add(value);
             counter--;
         } else {
