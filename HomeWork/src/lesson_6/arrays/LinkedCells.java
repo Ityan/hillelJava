@@ -3,7 +3,7 @@ package lesson_6.arrays;
 /**
  * Created by Igor on 21.04.2015.
  */
-public class LinkedCells implements ItsArray {
+public class LinkedCells implements ItsList {
 
     private Cell head;
     private Cell tail;

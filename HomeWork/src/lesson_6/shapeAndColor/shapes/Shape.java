@@ -9,11 +9,11 @@ public abstract class Shape {
 
     public abstract int getArea();
 
+    protected Color color;
+
     public String getColor() {
         return color.getColor();
     }
-
-    Color color;
 
     public void setColor(Color color) {
         this.color = color;

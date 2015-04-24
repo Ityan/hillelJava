@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * @author ITyan on 17.04.2015.
  */
-public class ObjectArray implements ItsArray {
+public class ObjectArray implements ItsList {
 
     private Object[] array = new String[1];
 
