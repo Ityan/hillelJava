@@ -8,7 +8,6 @@ public class Triangle extends Shape {
     private int a;
     private int b;
     private int c;
-    private int p;
 
     public Triangle(int a, int b, int c) {
         this.a = a;
@@ -18,7 +17,7 @@ public class Triangle extends Shape {
 
     @Override
     public int getArea() {
-        p = a + b + c;
+        int p = a + b + c;
         return (int) Math.sqrt(p * (p - a) * (p - b) * (p - c));
     }
 
