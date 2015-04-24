@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * @author ITyan on 20.04.2015.
  */
-public class StringArrayTest {
+public class ObjectArrayTest {
     @Test
     public void removeTest() {
         StringArray array = new StringArray();

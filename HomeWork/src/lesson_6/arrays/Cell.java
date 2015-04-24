@@ -1,4 +1,4 @@
-package lesson_6;
+package lesson_6.arrays;
 
 /**
  * Created by Igor on 21.04.2015.
