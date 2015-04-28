@@ -5,7 +5,7 @@ package com.hillel.java.oopBasics;
  */
 public abstract class Shape implements Colored {
 
-    public abstract double getArea();
+    public abstract int getArea();
 
     @Override
     public String toString() {

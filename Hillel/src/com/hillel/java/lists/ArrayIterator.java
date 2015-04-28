@@ -1,7 +1,6 @@
 package com.hillel.java.lists;
 
 import java.util.Iterator;
-import java.util.Objects;
 
 /**
  * Created by ITyan on 24.04.2015.
