@@ -1,4 +1,4 @@
-package com.hillel.java.lesson_8.comperison;
+package com.hillel.java.lesson_9.comperison;
 
 /**
  * Created by ITyan on 29.04.2015.
@@ -25,12 +25,16 @@ public class Vine implements Comparable<Vine>{
         }
         Vine other = (Vine) obj;
 
-        return this.year == other.year;
+        return this.year == other.year && this.price == other.price;
     }
 
     @Override
     public int compareTo(Vine bottle2) {
-        return this.year - bottle2.year;
+        int result = this.year - bottle2.year;
+        if (result == 0) {
+            result = this.price - bottle2.price;
+        }
+        return result;
     }
 
     @Override
@@ -40,5 +44,13 @@ public class Vine implements Comparable<Vine>{
 
     public int getPrice() {
         return price;
+    }
+
+    public String taste() {
+        return "Nothing special";
+    }
+
+    public int getYear() {
+        return year;
     }
 }
