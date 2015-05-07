@@ -13,6 +13,7 @@ public class Elf extends Personage {
 
     @Override
     void calcDamage() {
-        getDamage().setDistantDamage(getDamage().getDistantDamage() + 2);
+        Damage elfDamage = new Damage(0, 0, 2);
+        getDamage().addDamage(elfDamage);
     }
 }

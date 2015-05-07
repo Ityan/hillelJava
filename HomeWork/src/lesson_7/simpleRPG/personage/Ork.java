@@ -1,6 +1,6 @@
 package lesson_7.simpleRPG.personage;
 
-import lesson_7.simpleRPG.weapon.Hammer;
+import lesson_7.simpleRPG.weapon.Damage;
 
 /**
  * @author ITyan on 28.04.2015.
@@ -13,6 +13,7 @@ public class Ork extends Personage {
 
     @Override
     void calcDamage() {
-        getDamage().setCrushingDamage(getDamage().getCrushingDamage() + 3);
+        Damage orkDamage = new Damage(0, 3, 0);
+        getDamage().addDamage(orkDamage);
     }
 }

@@ -14,32 +14,13 @@ public class Damage {
         this.distantDamage = distantDamage;
     }
 
+    public void addDamage(Damage damage) {
+        this.cuttingDamage += damage.cuttingDamage;
+        this.crushingDamage += damage.crushingDamage;
+        this.distantDamage += damage.distantDamage;
+    }
+
     public int getAllDamage() {
         return cuttingDamage + crushingDamage + distantDamage;
-    }
-
-
-    public int getCuttingDamage() {
-        return cuttingDamage;
-    }
-
-    public int getCrushingDamage() {
-        return crushingDamage;
-    }
-
-    public int getDistantDamage() {
-        return distantDamage;
-    }
-
-    public void setCuttingDamage(int cuttingDamage) {
-        this.cuttingDamage = cuttingDamage;
-    }
-
-    public void setCrushingDamage(int crushingDamage) {
-        this.crushingDamage = crushingDamage;
-    }
-
-    public void setDistantDamage(int distantDamage) {
-        this.distantDamage = distantDamage;
     }
 }

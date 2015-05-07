@@ -1,5 +1,7 @@
 package lesson_7.simpleRPG.personage;
 
+import lesson_7.simpleRPG.weapon.Damage;
+
 /**
  * @author ITyan on 28.04.2015.
  */
@@ -11,6 +13,7 @@ public class Human extends Personage {
 
     @Override
     void calcDamage() {
-        getDamage().setCuttingDamage(getDamage().getCuttingDamage() + 4);
+        Damage humanDamage = new Damage(4, 0, 0);
+        getDamage().addDamage(humanDamage);
     }
 }
