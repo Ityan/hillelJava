@@ -5,15 +5,11 @@ package lesson_7.simpleRPG.weapon;
  */
 public abstract class Weapon {
 
-    private String weaponType;
+    private String name;
 
-    public Weapon(String weaponType) {
-        this.weaponType = weaponType;
+    public Weapon(String name) {
+        this.name = name;
     }
 
-    abstract public int getWeaponDamage();
-
-    public String getWeaponType() {
-        return weaponType;
-    }
+    abstract public Damage getWeaponDamage();
 }

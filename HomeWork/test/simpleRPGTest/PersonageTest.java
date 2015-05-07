@@ -28,21 +28,6 @@ public class PersonageTest {
     }
 
     @Test
-    public void setWeaponTest() {
-        Personage human = new Human();
-        Personage ork = new Ork();
-        Personage elf = new Elf();
-
-        human.setWeapon(new Sword());
-        ork.setWeapon(new Hammer());
-        elf.setWeapon(new Bow());
-
-        assertEquals("sword", human.getWeapon().getWeaponType());
-        assertEquals("hammer", ork.getWeapon().getWeaponType());
-        assertEquals("bow", elf.getWeapon().getWeaponType());
-    }
-
-    @Test
     public void getDamageTest() {
         Personage human = new Human();
         Personage ork = new Ork();
@@ -53,8 +38,8 @@ public class PersonageTest {
         elf.setWeapon(new Bow());
 
 
-        assertEquals(9, human.getDamage());
-        assertEquals(9, ork.getDamage());
-        assertEquals(8, elf.getDamage());
+        assertEquals(11, human.getAttack());
+        assertEquals(10, ork.getAttack());
+        assertEquals(7, elf.getAttack());
     }
 }

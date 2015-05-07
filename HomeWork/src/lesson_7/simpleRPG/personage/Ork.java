@@ -1,22 +1,18 @@
 package lesson_7.simpleRPG.personage;
 
+import lesson_7.simpleRPG.weapon.Hammer;
+
 /**
  * @author ITyan on 28.04.2015.
  */
 public class Ork extends Personage {
-
-    private static final int DAMAGE = 3;
 
     public Ork() {
         super("Ork");
     }
 
     @Override
-    public int getDamage() {
-        if (getWeapon().getWeaponType().equals("hammer")) {
-            return getWeapon().getWeaponDamage() + (DAMAGE / 2);
-        } else {
-            return getWeapon().getWeaponDamage();
-        }
+    void calcDamage() {
+        getDamage().setCrushingDamage(getDamage().getCrushingDamage() + 3);
     }
 }

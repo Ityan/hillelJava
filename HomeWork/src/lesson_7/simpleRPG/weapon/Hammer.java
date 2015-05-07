@@ -5,14 +5,12 @@ package lesson_7.simpleRPG.weapon;
  */
 public class Hammer extends Weapon {
 
-    private static final int HAMMER_DAMAGE = 8;
-
     public Hammer() {
         super("hammer");
     }
 
     @Override
-    public int getWeaponDamage() {
-        return HAMMER_DAMAGE;
+    public Damage getWeaponDamage() {
+        return new Damage(0, 7, 0);
     }
 }

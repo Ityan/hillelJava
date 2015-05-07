@@ -5,14 +5,12 @@ package lesson_7.simpleRPG.weapon;
  */
 public class Bow extends Weapon {
 
-    private static final int BOW_DAMAGE = 6;
-
     public Bow() {
         super("bow");
     }
 
     @Override
-    public int getWeaponDamage() {
-        return BOW_DAMAGE;
+    public Damage getWeaponDamage() {
+        return new Damage(0, 0, 5);
     }
 }

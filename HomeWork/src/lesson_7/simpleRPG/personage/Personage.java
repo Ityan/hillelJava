@@ -1,6 +1,9 @@
 package lesson_7.simpleRPG.personage;
 
+import lesson_7.simpleRPG.weapon.Damage;
 import lesson_7.simpleRPG.weapon.Weapon;
+
+import java.util.Date;
 
 /**
  * @author ITyan on 28.04.2015.
@@ -9,33 +12,29 @@ public abstract class Personage {
 
     private String name;
     private Weapon weapon;
+    private Damage damage;
 
     public Personage(String name) {
         this.name = name;
     }
 
-    abstract public int getDamage();
+    abstract void calcDamage();
+
+    public int getAttack() {
+        calcDamage();
+        return damage.getAllDamage();
+    }
 
     public String getName() {
         return name;
     }
 
-    public Weapon getWeapon() {
-        return weapon;
-    }
-
     public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
+        damage = weapon.getWeaponDamage();
     }
 
-    public void printAttack() {
-        System.out.println(this);
-    }
-
-    @Override
-    public String toString() {
-        String result = getName() + " takes the " + weapon.getWeaponType() +
-                " and strikes " + getDamage() + " points!";
-        return result;
+    public Damage getDamage() {
+        return damage;
     }
 }
