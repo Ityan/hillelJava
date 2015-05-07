@@ -3,9 +3,9 @@ package lesson_7.simpleRPG.personage;
 import lesson_7.simpleRPG.weapon.Weapon;
 
 /**
- * Created by Igor on 28.04.2015.
+ * @author ITyan on 28.04.2015.
  */
-public  class Personage {
+public abstract class Personage {
 
     private String name;
     private Weapon weapon;
@@ -14,19 +14,28 @@ public  class Personage {
         this.name = name;
     }
 
-    public void addWeapon(Weapon weapon) {
-        this.weapon = weapon;
-    }
-
-    public String printAttack() {
-        return getName() + " " + getWeapon() + " attack";
-    }
-
-    public String getWeapon() {
-        return weapon.getName();
-    }
+    abstract public int getDamage();
 
     public String getName() {
         return name;
+    }
+
+    public Weapon getWeapon() {
+        return weapon;
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    public void printAttack() {
+        System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+        String result = getName() + " takes the " + weapon.getWeaponType() +
+                " and strikes " + getDamage() + " points!";
+        return result;
     }
 }

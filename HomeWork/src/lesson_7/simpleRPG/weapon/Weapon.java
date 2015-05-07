@@ -1,17 +1,19 @@
 package lesson_7.simpleRPG.weapon;
 
 /**
- * Created by Igor on 28.04.2015.
+ * @author ITyan on 28.04.2015.
  */
 public abstract class Weapon {
 
-    private String name;
+    private String weaponType;
 
-    public Weapon(String name) {
-        this.name = name;
+    public Weapon(String weaponType) {
+        this.weaponType = weaponType;
     }
 
-    public String getName() {
-        return name;
+    abstract public int getWeaponDamage();
+
+    public String getWeaponType() {
+        return weaponType;
     }
 }

@@ -9,6 +9,7 @@ import lesson_7.simpleRPG.weapon.Bow;
 import lesson_7.simpleRPG.weapon.Hammer;
 import lesson_7.simpleRPG.weapon.Sword;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -21,42 +22,39 @@ public class PersonageTest {
         Personage ork = new Ork();
         Personage elf = new Elf();
 
-        assertEquals("Human" ,human.getName());
-        assertEquals("Ork" ,ork.getName());
-        assertEquals("Elf" ,elf.getName());
+        assertEquals("Human", human.getName());
+        assertEquals("Ork", ork.getName());
+        assertEquals("Elf", elf.getName());
     }
 
     @Test
-    public void printAttackTest() {
+    public void setWeaponTest() {
         Personage human = new Human();
         Personage ork = new Ork();
         Personage elf = new Elf();
 
-        human.addWeapon(new Sword());
-        ork.addWeapon(new Hammer());
-        elf.addWeapon(new Bow());
+        human.setWeapon(new Sword());
+        ork.setWeapon(new Hammer());
+        elf.setWeapon(new Bow());
 
-        String humanAttack = human.printAttack();
-        String orkAttack = ork.printAttack();
-        String elfAttack = elf.printAttack();
-
-        assertEquals("Human sword attack", humanAttack);
-        assertEquals("Ork hammer attack", orkAttack);
-        assertEquals("Elf bow attack", elfAttack);
+        assertEquals("sword", human.getWeapon().getWeaponType());
+        assertEquals("hammer", ork.getWeapon().getWeaponType());
+        assertEquals("bow", elf.getWeapon().getWeaponType());
     }
 
     @Test
-    public void strikeTest() {
+    public void getDamageTest() {
         Personage human = new Human();
         Personage ork = new Ork();
         Personage elf = new Elf();
 
-        human.addWeapon(new Sword());
-        ork.addWeapon(new Hammer());
-        elf.addWeapon(new Bow());
+        human.setWeapon(new Sword());
+        ork.setWeapon(new Hammer());
+        elf.setWeapon(new Bow());
 
-//        assertEquals(7, human.strike());
-//        assertEquals(9, ork.strike());
-//        assertEquals(10, elf.strike());
+
+        assertEquals(9, human.getDamage());
+        assertEquals(9, ork.getDamage());
+        assertEquals(8, elf.getDamage());
     }
 }
