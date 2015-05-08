@@ -1,15 +1,16 @@
 package com.hillel.java.inheritence;
 
+import com.hillel.java.composition.Namable;
+
 /**
  * Created by ITyan on 22.04.2015.
  */
-public class Person {
+public class Person implements Namable, Comparable<Person> {
 
     private String name;
 
-//    public Person() {
-//        System.out.println("creating Person");
-//    }
+    public Person() {
+    }
 
     public Person(String name) {
         this.name = name;
@@ -21,5 +22,17 @@ public class Person {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        return this.name.compareTo(o.name);
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                '}';
     }
 }

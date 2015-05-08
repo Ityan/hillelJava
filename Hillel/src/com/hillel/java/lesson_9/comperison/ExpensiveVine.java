@@ -10,6 +10,6 @@ public class ExpensiveVine extends Vine {
 
     @Override
     public String taste() {
-        return "Belissimo!";
+        return "Belisimo!";
     }
 }
