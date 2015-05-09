@@ -15,6 +15,8 @@ import java.util.Random;
  */
 public class Road extends JPanel implements ActionListener, Runnable {
 
+    private static final int WIN_DISTANCE = 100000;
+
     private Timer mainTimer = new Timer(20, this);
 
     private Image roadImage = new ImageIcon("2D_Racing/res/road.png").getImage();
@@ -70,7 +72,8 @@ public class Road extends JPanel implements ActionListener, Runnable {
         g.setColor(Color.GREEN);
         Font font = new Font("Arial", Font.ITALIC, 20);
         g.setFont(font);
-        g.drawString("SPEED: " + speed + "Mp/h", 100, 30);
+        g.drawString("DISTANCE LEFT: " + (WIN_DISTANCE - player.getRoute()), 100, 30);
+        g.drawString("SPEED: " + speed + "Mp/h", 100, 50);
 
         Iterator<Enemy> iterator = enemies.iterator();
         while (iterator.hasNext()) {
@@ -108,7 +111,7 @@ public class Road extends JPanel implements ActionListener, Runnable {
     }
 
     public void win() {
-        if (player.getRoute() >= 100000) {
+        if (player.getRoute() >= WIN_DISTANCE) {
             JOptionPane.showMessageDialog(null, "You WIN!");
             System.exit(1);
         }

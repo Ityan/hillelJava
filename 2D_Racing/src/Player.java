@@ -69,11 +69,11 @@ public class Player {
             speedUp = -3;
         }
         if (key == KeyEvent.VK_UP) {
-            dy = 10;
+            dy = 5;
             image = imageLeft;
         }
         if (key == KeyEvent.VK_DOWN) {
-            dy = -10;
+            dy = -5;
             image = imageRight;
         }
     }
