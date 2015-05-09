@@ -9,7 +9,7 @@ public class Sommelier {
     public static void main(String[] args) {
         //oldStaff();
 
-        List<Vine> store = new ArrayList<>();
+        List<Vine> store = new ArrayList<Vine>();
         store.add(new Vine(1999, 200));
         store.add(new Vine(1995, 250));
         store.add(new Vine(1995, 250));
@@ -21,13 +21,13 @@ public class Sommelier {
 
         print(store);
 
-        Set<Vine> menu = new TreeSet<>();
+        Set<Vine> menu = new TreeSet<Vine>();
 
         System.out.println("Menu:");
         menu.addAll(store);
         print(menu);
 
-        Set<Vine> orderByPrice = new TreeSet<>(new OrderByPriceYear());
+        Set<Vine> orderByPrice = new TreeSet<Vine>(new OrderByPriceYear());
 
         orderByPrice.addAll(store);
         System.out.println("Menu order:");
@@ -60,7 +60,7 @@ public class Sommelier {
         System.out.println("they are equal: " + bottle1.equals(bottle2));
         System.out.println("1 greater than 2 " + (bottle1.compareTo(bottle2) > 0));
 
-        List<Vine> list = new ArrayList<>();
+        List<Vine> list = new ArrayList<Vine>();
 
         list.add(bottle1);
         list.add(bottle2);
