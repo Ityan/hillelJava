@@ -3,7 +3,7 @@ package com.hillel.java.lesson_9.comperison;
 import java.util.Comparator;
 
 /**
- * Created by ITyan on 29.04.2015.
+ * @author ITyan on 29.04.2015.
  */
 public class OrderByPriceYear implements Comparator<Vine> {
 
