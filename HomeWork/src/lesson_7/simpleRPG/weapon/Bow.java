@@ -7,13 +7,12 @@ import java.util.Random;
  */
 public class Bow extends Weapon {
 
-    private static int minDamage = 5;
-    private static int maxDamage = 10;
-
     Damage damage = new Damage(0, 0, getBowDamage());
 
     private int getBowDamage() {
         Random random = new Random();
+        int minDamage = 5;
+        int maxDamage = 10;
         return (int) Math.round(random.nextDouble() * (maxDamage - minDamage) + minDamage);
     }
 

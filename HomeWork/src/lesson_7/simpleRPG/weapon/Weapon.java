@@ -1,7 +1,7 @@
 package lesson_7.simpleRPG.weapon;
 
 /**
- * Created by Igor on 17.05.2015.
+ * @author ITyan on 17.05.2015.
  */
 public abstract class Weapon {
 

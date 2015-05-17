@@ -7,13 +7,12 @@ import java.util.Random;
  */
 public class Hammer extends Weapon {
 
-    private static int minDamage = 7;
-    private static int maxDamage = 8;
-
     Damage damage = new Damage(0, getHammerDamage(), 0);
 
     private int getHammerDamage() {
         Random random = new Random();
+        int minDamage = 7;
+        int maxDamage = 8;
         return (int) Math.round(random.nextDouble() * (maxDamage - minDamage) + minDamage);
     }
 
