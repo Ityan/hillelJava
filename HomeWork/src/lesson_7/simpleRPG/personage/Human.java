@@ -1,6 +1,5 @@
 package lesson_7.simpleRPG.personage;
 
-import lesson_7.simpleRPG.weapon.Damage;
 import lesson_7.simpleRPG.weapon.Damageable;
 
 /**
@@ -8,8 +7,8 @@ import lesson_7.simpleRPG.weapon.Damageable;
  */
 public class Human extends Personage {
 
-    public Human(Damageable damageable) {
-        super("Human", damageable);
+    public Human(Damageable weapon) {
+        super("Human", weapon);
     }
 
     @Override

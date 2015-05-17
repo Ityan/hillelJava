@@ -7,8 +7,8 @@ import lesson_7.simpleRPG.weapon.Damageable;
  */
 public class Elf extends Personage {
 
-    public Elf(Damageable damageable) {
-        super("Elf", damageable);
+    public Elf(Damageable weapon) {
+        super("Elf", weapon);
     }
 
     @Override
