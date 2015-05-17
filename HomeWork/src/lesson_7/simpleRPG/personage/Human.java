@@ -1,19 +1,19 @@
 package lesson_7.simpleRPG.personage;
 
 import lesson_7.simpleRPG.weapon.Damage;
+import lesson_7.simpleRPG.weapon.Damageable;
 
 /**
- * @author ITyan on 28.04.2015.
+ * @author ITyan on 17.05.2015.
  */
 public class Human extends Personage {
 
-    public Human() {
-        super("Human");
+    public Human(Damageable damageable) {
+        super("Human", damageable);
     }
 
     @Override
-    void calcDamage() {
-        Damage humanDamage = new Damage(4, 0, 0);
-        getDamage().addDamage(humanDamage);
+    int getAttack() {
+        return 5;
     }
 }

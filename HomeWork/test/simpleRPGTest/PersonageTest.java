@@ -1,6 +1,5 @@
 package simpleRPGTest;
 
-
 import lesson_7.simpleRPG.personage.Elf;
 import lesson_7.simpleRPG.personage.Human;
 import lesson_7.simpleRPG.personage.Ork;
@@ -13,33 +12,24 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by Igor on 28.04.2015.
+ * @author ITyan on 28.04.2015.
  */
 public class PersonageTest {
-    @Test
-    public void getNameTest() {
-        Personage human = new Human();
-        Personage ork = new Ork();
-        Personage elf = new Elf();
-
-        assertEquals("Human", human.getName());
-        assertEquals("Ork", ork.getName());
-        assertEquals("Elf", elf.getName());
-    }
 
     @Test
-    public void getDamageTest() {
-        Personage human = new Human();
-        Personage ork = new Ork();
-        Personage elf = new Elf();
+    public void getPersonageDamageTest() {
 
-        human.setWeapon(new Sword());
-        ork.setWeapon(new Hammer());
-        elf.setWeapon(new Bow());
+        Personage human = new Human(new Sword());
+        Personage elf = new Elf(new Bow());
+        Personage ork = new Ork(new Hammer());
 
+        int hAttack = human.getPersonageDamage();
+        int eAttack = elf.getPersonageDamage();
+        int oAttack = ork.getPersonageDamage();
 
-        assertEquals(11, human.getAttack());
-        assertEquals(10, ork.getAttack());
-        assertEquals(7, elf.getAttack());
+        assertEquals(8, hAttack);
+        assertEquals(8, eAttack);
+        assertEquals(9, oAttack);
     }
+
 }

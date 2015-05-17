@@ -1,4 +1,4 @@
-package lesson_7.iteratorList.objectArray;
+package lesson_7.iteratorList.ObjectArray;
 
 import lesson_7.iteratorList.ItsList;
 

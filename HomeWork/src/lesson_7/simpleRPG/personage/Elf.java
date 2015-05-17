@@ -1,19 +1,18 @@
 package lesson_7.simpleRPG.personage;
 
-import lesson_7.simpleRPG.weapon.Damage;
+import lesson_7.simpleRPG.weapon.Damageable;
 
 /**
- * @author ITyan on 28.04.2015.
+ * @author ITyan on 17.05.2015.
  */
 public class Elf extends Personage {
 
-    public Elf() {
-        super("Elf");
+    public Elf(Damageable damageable) {
+        super("Elf", damageable);
     }
 
     @Override
-    void calcDamage() {
-        Damage elfDamage = new Damage(0, 0, 2);
-        getDamage().addDamage(elfDamage);
+    int getAttack() {
+        return 6;
     }
 }

@@ -1,40 +1,36 @@
 package lesson_7.simpleRPG.personage;
 
 import lesson_7.simpleRPG.weapon.Damage;
-import lesson_7.simpleRPG.weapon.Weapon;
-
-import java.util.Date;
+import lesson_7.simpleRPG.weapon.Damageable;
 
 /**
- * @author ITyan on 28.04.2015.
+ * @author ITyan on 17.05.2015.
  */
 public abstract class Personage {
 
     private String name;
-    private Weapon weapon;
+
     private Damage damage;
+    private Damageable weapon;
 
-    public Personage(String name) {
+    public Personage(String name, Damageable weapon) {
         this.name = name;
-    }
-
-    abstract void calcDamage();
-
-    public int getAttack() {
-        calcDamage();
-        return damage.getAllDamage();
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setWeapon(Weapon weapon) {
         this.weapon = weapon;
-        damage = weapon.getWeaponDamage();
+        damage = weapon.getDamage();
     }
 
-    public Damage getDamage() {
-        return damage;
+    abstract int getAttack();
+
+    public int getPersonageDamage() {
+        int cutting = damage.getCuttingDamage();
+        int crushing = damage.getCrushingDamage();
+        int distance = damage.getDistanceDamage();
+
+        return cutting + crushing + distance + (getAttack() / 2);
+    }
+
+    public void printAttack() {
+        System.out.println("Race: " + name + "\nWeapon: " +
+                weapon.getName() + "\nDamage: " + getPersonageDamage());
     }
 }

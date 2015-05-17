@@ -1,16 +1,17 @@
 package lesson_7.simpleRPG.weapon;
 
 /**
- * @author ITyan on 28.04.2015.
+ * @author Ityan on 17.05.2015.
  */
-public class Sword extends Weapon {
+public class Sword implements Damageable {
 
-    public Sword() {
-        super("sword");
+    @Override
+    public Damage getDamage() {
+        return new Damage(6, 0, 0);
     }
 
     @Override
-    public Damage getWeaponDamage() {
-        return new Damage(7, 0, 0);
+    public String getName() {
+        return "sword";
     }
 }

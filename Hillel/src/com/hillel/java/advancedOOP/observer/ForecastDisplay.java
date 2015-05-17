@@ -1,6 +1,5 @@
-package com.hillel.java.advancedOOP.abserver;
+package com.hillel.java.advancedOOP.observer;
 
-import java.util.Map;
 import java.util.Random;
 
 /**
