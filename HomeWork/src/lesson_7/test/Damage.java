@@ -1,4 +1,4 @@
-package lesson_7.simpleRPG.weapon;
+package lesson_7.test;
 
 /**
  * @author ITyan on 17.05.2015.
@@ -15,14 +15,15 @@ public class Damage {
         this.distanceDamage = distanceDamage;
     }
 
-    public void addDamage(Damage d) {
-        cuttingDamage += d.cuttingDamage / 2;
-        crushingDamage += d.crushingDamage / 2;
-        distanceDamage += d.distanceDamage / 2;
+    public int getCuttingDamage() {
+        return cuttingDamage;
     }
 
-    @Override
-    public String toString() {
-        return "" + (cuttingDamage + crushingDamage +  distanceDamage);
+    public int getCrushingDamage() {
+        return crushingDamage;
+    }
+
+    public int getDistanceDamage() {
+        return distanceDamage;
     }
 }

@@ -24,12 +24,12 @@ public class WeatherMain {
         weatherData.addObserver(statisticDisplay);
         weatherData.addObserver(forecastDisplay);
 
-        weatherData.recieveData(19, 50);
+        weatherData.receiveData(19, 50);
         print(displayables);
 
         System.out.println();
 
-        weatherData.recieveData(21, 55);
+        weatherData.receiveData(21, 55);
         print(displayables);
     }
 

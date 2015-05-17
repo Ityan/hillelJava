@@ -16,7 +16,7 @@ public class WeatherData {
         updatables.add(observer);
     }
 
-    public void recieveData(int temperature, int humidity) {
+    public void receiveData(int temperature, int humidity) {
         weather = new Weather(temperature, humidity);
 
         measurmentCganged();
