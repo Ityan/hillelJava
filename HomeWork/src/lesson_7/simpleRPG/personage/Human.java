@@ -7,6 +7,13 @@ import lesson_7.simpleRPG.weapon.Damage;
  */
 public class Human extends Personage {
 
+    public Human() {
+    }
+
+    public Human(double r) {
+        super(r);
+    }
+
     @Override
     public String getName() {
         return "Human";

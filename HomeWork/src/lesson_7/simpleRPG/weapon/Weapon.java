@@ -5,14 +5,9 @@ import java.util.Random;
 /**
  * @author ITyan on 17.05.2015.
  */
-public abstract class Weapon {
+public interface Weapon {
 
-    abstract public Damage getDamage();
+    Damage getDamage(double random);
 
-    abstract public String getName();
-
-    public int getRandom(int min, int max) {
-        Random random = new Random();
-        return (int) Math.round(random.nextDouble() * (max - min) + min);
-    }
+    String getName();
 }

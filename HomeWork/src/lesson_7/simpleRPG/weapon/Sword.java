@@ -3,14 +3,14 @@ package lesson_7.simpleRPG.weapon;
 /**
  * @author Ityan on 17.05.2015.
  */
-public class Sword extends Weapon {
-
-    private static final int MIN_DAMAGE = 6;
-    private static final int MAX_DAMAGE = 9;
+public class Sword implements Weapon {
 
     @Override
-    public Damage getDamage() {
-        return new Damage(getRandom(MIN_DAMAGE, MAX_DAMAGE), 0, 0);
+    public Damage getDamage(double random) {
+        int min = 6;
+        int max = 9;
+        int r = (int) (random * (max - min) + min);
+        return new Damage(r, 0, 0);
     }
 
     @Override

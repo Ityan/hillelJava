@@ -8,6 +8,13 @@ import lesson_7.simpleRPG.weapon.Weapon;
  */
 public class Elf extends Personage {
 
+    public Elf() {
+    }
+
+    public Elf(double r) {
+        super(r);
+    }
+
     @Override
     public String getName() {
         return "Elf";
