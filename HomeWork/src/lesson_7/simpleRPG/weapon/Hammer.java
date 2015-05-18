@@ -10,7 +10,7 @@ public class Hammer extends Weapon {
 
     @Override
     public Damage getDamage() {
-        return new Damage(0, getWeaponDamage(MIN_DAMAGE, MAX_DAMAGE), 0);
+        return new Damage(0, getRandom(MIN_DAMAGE, MAX_DAMAGE), 0);
     }
 
     @Override

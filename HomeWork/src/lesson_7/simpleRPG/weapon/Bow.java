@@ -10,7 +10,7 @@ public class Bow extends Weapon {
 
     @Override
     public Damage getDamage() {
-        return new Damage(0, 0, getWeaponDamage(MIN_DAMAGE, MAX_DAMAGE));
+        return new Damage(0, 0, getRandom(MIN_DAMAGE, MAX_DAMAGE));
     }
 
     @Override

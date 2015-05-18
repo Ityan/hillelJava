@@ -11,7 +11,7 @@ public abstract class Weapon {
 
     abstract public String getName();
 
-    protected int getWeaponDamage(int min, int max) {
+    public int getRandom(int min, int max) {
         Random random = new Random();
         return (int) Math.round(random.nextDouble() * (max - min) + min);
     }
