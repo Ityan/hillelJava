@@ -19,8 +19,10 @@ public abstract class Personage {
     }
 
     public Damage getPersonageDamage() {
-        weapon.addBonus(getBonus());
-        return weapon.getDamage();
+        Damage damage = new Damage();
+        damage.addDamage(weapon.getDamage());
+        damage.addDamage(getBonus());
+        return damage;
     }
 
     public void printAttack() {

@@ -1,24 +1,16 @@
 package lesson_7.simpleRPG.weapon;
 
-import java.util.Random;
-
 /**
  * @author ITyan on 17.05.2015.
  */
 public class Hammer extends Weapon {
 
-    Damage damage = new Damage(0, getHammerDamage(), 0);
-
-    private int getHammerDamage() {
-        Random random = new Random();
-        int minDamage = 7;
-        int maxDamage = 8;
-        return (int) Math.round(random.nextDouble() * (maxDamage - minDamage) + minDamage);
-    }
+    private static final int MIN_DAMAGE = 7;
+    private static final int MAX_DAMAGE = 8;
 
     @Override
     public Damage getDamage() {
-        return damage;
+        return new Damage(0, getWeaponDamage(MIN_DAMAGE, MAX_DAMAGE), 0);
     }
 
     @Override

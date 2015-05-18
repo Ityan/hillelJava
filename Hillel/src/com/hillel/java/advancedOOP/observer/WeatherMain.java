@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by ITyan on 15.05.2015.
+ * @author ITyan on 15.05.2015.
  */
 public class WeatherMain {
 
