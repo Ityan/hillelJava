@@ -11,8 +11,10 @@ public class Weapon {
 
     private Damage max;
 
-    public Weapon(String name) {
+    public Weapon(String name, Damage min, Damage max) {
         this.name = name;
+        this.min = min;
+        this.max = max;
     }
 
     public Damage getDamage(double random) {
@@ -26,13 +28,5 @@ public class Weapon {
 
     public String getName() {
         return name;
-    }
-
-    public void setMin(Damage min) {
-        this.min = min;
-    }
-
-    public void setMax(Damage max) {
-        this.max = max;
     }
 }

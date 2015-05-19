@@ -18,17 +18,11 @@ public class PersonageTest {
         Personage ork = new Personage("Ork", new Damage(0, 3, 0));
         Personage elf = new Personage("Elf", new Damage(0, 0, 5));
 
-        Weapon sword = new Weapon("sword");
-        sword.setMin(new Damage(6, 0, 0));
-        sword.setMax(new Damage(9, 0, 0));
+        Weapon sword = new Weapon("sword", new Damage(6, 0, 0), new Damage(9, 0, 0));
 
-        Weapon hammer = new Weapon("hammer");
-        hammer.setMin(new Damage(0, 7, 0));
-        hammer.setMax(new Damage(0, 8, 0));
+        Weapon hammer = new Weapon("hammer", new Damage(0, 7, 0), new Damage(0, 8, 0));
 
-        Weapon bow = new Weapon("bow");
-        bow.setMin(new Damage(0, 0, 5));
-        bow.setMax(new Damage(0, 0, 10));
+        Weapon bow = new Weapon("bow", new Damage(0, 0, 5), new Damage(0, 0, 10));
 
         human.addWeapon(sword);
         ork.addWeapon(hammer);
