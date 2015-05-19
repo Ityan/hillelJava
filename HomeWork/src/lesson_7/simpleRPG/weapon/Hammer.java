@@ -3,7 +3,7 @@ package lesson_7.simpleRPG.weapon;
 /**
  * @author ITyan on 17.05.2015.
  */
-public class Hammer extends Weapon {
+public class Hammer implements Weapon {
 
     @Override
     public Damage getDamage(double random) {
