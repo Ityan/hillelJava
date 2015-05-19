@@ -1,20 +1,20 @@
-package lesson_7.simpleRPG.personage;
-
-import lesson_7.simpleRPG.weapon.Damage;
-import lesson_7.simpleRPG.weapon.Weapon;
+package lesson_7.simpleRPG;
 
 import java.util.Random;
 
 /**
  * @author ITyan on 17.05.2015.
  */
-public abstract class Personage {
+public  class Personage {
 
     private Weapon weapon;
+    private Damage bonus;
+    private String name;
 
-    abstract public String getName();
-    
-    abstract public Damage getBonus();
+    public Personage(String name, Damage bonus) {
+        this.name = name;
+        this.bonus = bonus;
+    }
 
     public void addWeapon(Weapon weapon) {
         this.weapon = weapon;
@@ -22,18 +22,18 @@ public abstract class Personage {
 
     public Damage getPersonageDamage(double rand) {
         Damage damage = new Damage();
-        damage.addDamage(weapon.getDamage(rand));
-        damage.addDamage(getBonus());
+        damage.plusDamage(weapon.getDamage(rand));
+        damage.plusDamage(bonus);
         return damage;
     }
 
     public void printAttack() {
-        System.out.println("Race: " + getName() + "\nWeapon: " +
+        System.out.println("Race: " + name + "\nWeapon: " +
                 weapon.getName() + "\nDamage: " + getPersonageDamage(random()));
         System.out.println();
     }
 
-    public double random() {
+    private double random() {
         return new Random().nextDouble();
     }
 }

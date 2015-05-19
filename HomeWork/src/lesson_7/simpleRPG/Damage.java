@@ -1,4 +1,4 @@
-package lesson_7.simpleRPG.weapon;
+package lesson_7.simpleRPG;
 
 /**
  * @author ITyan on 17.05.2015.
@@ -9,11 +9,7 @@ public class Damage {
     private int crushingDamage;
     private int distanceDamage;
 
-    public Damage() {
-        cuttingDamage = 0;
-        crushingDamage = 0;
-        distanceDamage = 0;
-    }
+    public Damage() {}
 
     public Damage(int cuttingDamage, int crushingDamage, int distanceDamage) {
         this.cuttingDamage = cuttingDamage;
@@ -21,10 +17,22 @@ public class Damage {
         this.distanceDamage = distanceDamage;
     }
 
-    public void addDamage(Damage d) {
+    public void plusDamage(Damage d) {
         cuttingDamage += d.cuttingDamage;
         crushingDamage += d.crushingDamage;
         distanceDamage += d.distanceDamage;
+    }
+
+    public void minusDamage(Damage d) {
+        cuttingDamage -= d.cuttingDamage;
+        crushingDamage -= d.crushingDamage;
+        distanceDamage -= d.distanceDamage;
+    }
+
+    public void multiplyDamage(double d) {
+        cuttingDamage *= d;
+        crushingDamage *= d;
+        distanceDamage *= d;
     }
 
     @Override
