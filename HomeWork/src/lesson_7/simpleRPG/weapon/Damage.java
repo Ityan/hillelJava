@@ -31,4 +31,17 @@ public class Damage {
     public String toString() {
         return "" + (cuttingDamage + crushingDamage +  distanceDamage);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Damage damage = (Damage) o;
+
+        if (cuttingDamage != damage.cuttingDamage) return false;
+        if (crushingDamage != damage.crushingDamage) return false;
+        return distanceDamage == damage.distanceDamage;
+
+    }
 }

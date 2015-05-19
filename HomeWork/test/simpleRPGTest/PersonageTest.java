@@ -16,21 +16,25 @@ public class PersonageTest {
 
     @Test
     public void getPersonageDamageTest() {
-        Personage human = new Human(1);
-        Personage ork = new Ork(1);
-        Personage elf = new Elf(1);
+        Personage human = new Human();
+        Personage ork = new Ork();
+        Personage elf = new Elf();
 
         human.addWeapon(new Sword());
         ork.addWeapon(new Hammer());
         elf.addWeapon(new Bow());
 
-        String h = human.getPersonageDamage().toString();
-        String o = ork.getPersonageDamage().toString();
-        String e = elf.getPersonageDamage().toString();
+        Damage humanD = new Damage(14, 0, 0);
+        Damage orkD = new Damage(0, 13, 0);
+        Damage elfD = new Damage(0, 0, 16);
 
-        assertEquals("14", h);
-        assertEquals("12", o);
-        assertEquals("16", e);
+        Damage h = human.getPersonageDamage(1);
+        Damage o = ork.getPersonageDamage(1);
+        Damage e = elf.getPersonageDamage(1);
+
+        assertEquals(humanD, h);
+        assertEquals(orkD, o);
+        assertEquals(elfD, e);
     }
 
 }

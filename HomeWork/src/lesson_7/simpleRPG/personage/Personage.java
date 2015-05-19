@@ -12,14 +12,6 @@ public abstract class Personage {
 
     private Weapon weapon;
 
-    private double random = new Random().nextDouble();
-
-    public Personage() {}
-
-    public Personage(double r) {
-        random = r;
-    }
-
     abstract public String getName();
     
     abstract public Damage getBonus();
@@ -28,15 +20,20 @@ public abstract class Personage {
         this.weapon = weapon;
     }
 
-    public Damage getPersonageDamage() {
+    public Damage getPersonageDamage(double rand) {
         Damage damage = new Damage();
-        damage.addDamage(weapon.getDamage(random));
+        damage.addDamage(weapon.getDamage(rand));
         damage.addDamage(getBonus());
         return damage;
     }
 
     public void printAttack() {
         System.out.println("Race: " + getName() + "\nWeapon: " +
-                weapon.getName() + "\nDamage: " + getPersonageDamage());
+                weapon.getName() + "\nDamage: " + getPersonageDamage(random()));
+        System.out.println();
+    }
+
+    public double random() {
+        return new Random().nextDouble();
     }
 }

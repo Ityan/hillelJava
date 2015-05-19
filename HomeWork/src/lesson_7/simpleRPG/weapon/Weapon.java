@@ -5,9 +5,9 @@ import java.util.Random;
 /**
  * @author ITyan on 17.05.2015.
  */
-public interface Weapon {
+public abstract class Weapon {
 
-    Damage getDamage(double random);
+    abstract public Damage getDamage(double random);
 
-    String getName();
+    abstract public String getName();
 }

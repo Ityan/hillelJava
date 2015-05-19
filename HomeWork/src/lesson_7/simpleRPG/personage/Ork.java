@@ -7,13 +7,6 @@ import lesson_7.simpleRPG.weapon.Damage;
  */
 public class Ork extends Personage {
 
-    public Ork() {
-    }
-
-    public Ork(double r) {
-        super(r);
-    }
-
     @Override
     public String getName() {
         return "Ork";

@@ -3,7 +3,7 @@ package lesson_7.simpleRPG.weapon;
 /**
  * @author Ityan on 17.05.2015.
  */
-public class Sword implements Weapon {
+public class Sword extends Weapon {
 
     @Override
     public Damage getDamage(double random) {
