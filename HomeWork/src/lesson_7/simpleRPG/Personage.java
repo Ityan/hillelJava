@@ -20,20 +20,16 @@ public  class Personage {
         this.weapon = weapon;
     }
 
-    public Damage getPersonageDamage(double rand) {
+    public Damage getPersonageDamage() {
         Damage damage = new Damage();
-        damage.plusDamage(weapon.getDamage(rand));
+        damage.plusDamage(weapon.getDamage());
         damage.plusDamage(bonus);
         return damage;
     }
 
     public void printAttack() {
         System.out.println("Race: " + name + "\nWeapon: " +
-                weapon.getName() + "\nDamage: " + getPersonageDamage(random()));
+                weapon.getName() + "\nDamage: " + getPersonageDamage());
         System.out.println();
-    }
-
-    private double random() {
-        return new Random().nextDouble();
     }
 }
