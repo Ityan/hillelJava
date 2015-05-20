@@ -20,9 +20,7 @@ public class PersonageTest {
         Personage elf = new Personage("Elf", new Damage(0, 0, 5));
 
         Weapon sword = new Weapon("sword", new Damage(6, 0, 0), new Damage(9, 0, 0), new TestRandom());
-
         Weapon hammer = new Weapon("hammer", new Damage(0, 7, 0), new Damage(0, 8, 0), new TestRandom());
-
         Weapon bow = new Weapon("bow", new Damage(0, 0, 5), new Damage(0, 0, 10), new TestRandom());
 
         human.addWeapon(sword);

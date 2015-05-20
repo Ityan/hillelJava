@@ -5,14 +5,14 @@ package lesson_7.simpleRPG;
  */
 public class Weapon {
 
-    private Randomable rand;
+    private RandomBehavior rand;
 
     private String name;
 
     private Damage min;
     private Damage max;
 
-    public Weapon(String name, Damage min, Damage max, Randomable randomOrTest) {
+    public Weapon(String name, Damage min, Damage max, RandomBehavior randomOrTest) {
         this.name = name;
         this.min = min;
         this.max = max;
