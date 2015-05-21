@@ -1,4 +1,4 @@
-package com.hillel.java.advancedOOP.observer;
+package com.hillel.java.pattern.observer;
 
 import java.util.ArrayList;
 import java.util.List;

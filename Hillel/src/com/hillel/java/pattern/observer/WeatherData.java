@@ -1,4 +1,4 @@
-package com.hillel.java.advancedOOP.observer;
+package com.hillel.java.pattern.observer;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +14,10 @@ public class WeatherData {
 
     public void addObserver(Updatable observer) {
         updatables.add(observer);
+    }
+
+    public void removeObserver(Updatable observer) {
+        updatables.remove(observer);
     }
 
     public void receiveData(int temperature, int humidity) {

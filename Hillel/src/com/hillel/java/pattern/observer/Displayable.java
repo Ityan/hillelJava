@@ -1,4 +1,4 @@
-package com.hillel.java.advancedOOP.observer;
+package com.hillel.java.pattern.observer;
 
 /**
  * Created by ITyan on 15.05.2015.

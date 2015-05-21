@@ -1,7 +1,7 @@
-package com.hillel.java.advancedOOP.duck;
+package com.hillel.java.pattern.strategy.duck;
 
-import com.hillel.java.advancedOOP.fly.FlyBehavior;
-import com.hillel.java.advancedOOP.quack.QuackBehavior;
+import com.hillel.java.pattern.strategy.fly.FlyBehavior;
+import com.hillel.java.pattern.strategy.quack.QuackBehavior;
 
 /**
  * @author ITyan  on 24.04.2015.
