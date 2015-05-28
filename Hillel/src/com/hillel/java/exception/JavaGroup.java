@@ -17,9 +17,18 @@ public class JavaGroup {
         }
     }
 
-    public void addGrade(String name, Integer grade) throws UnknownStudentException{
+    public void addGrade(String name, Integer grade) throws UnknownStudentException, GradeAlreadyExistException {
         if (!namesToGrade.containsKey(name)) {
             throw new UnknownStudentException("Unknown student: " + name);
+        }
+
+        Integer existedGrade = namesToGrade.get(name);
+        if (existedGrade != null){
+            throw new GradeAlreadyExistException("name: " + name + ", existed grade: " + grade + " , new grade: " + existedGrade);
+        }
+
+        if (name == null) {
+            throw new NullPointerException("name is null");
         }
         namesToGrade.put(name, grade);
     }

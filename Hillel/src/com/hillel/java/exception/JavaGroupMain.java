@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class JavaGroupMain {
 
-    public static void main(String[] args) throws UnknownStudentException {
+    public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         list.add("Ivan");
         list.add("Dimon");
@@ -16,21 +16,22 @@ public class JavaGroupMain {
 
         JavaGroup group = new JavaGroup(list);
 
+        addGrade("Ivan", 5, group);
+        addGrade("Dimon", 5, group);
+        addGrade("Nikita", 5, group);
+        addGrade("Ivan", 2, group);
+
+        System.out.println("end");
+
+    }
+
+    private static void addGrade(String name, Integer grade, JavaGroup group){
         try {
-            group.addGrade("Ivan", 5);
-        } catch (UnknownStudentException e) {
-            System.out.println(e);
-            throw e;
-        }
-        try {
-            group.addGrade("Troll", 2);
-        } catch (UnknownStudentException e) {
+            group.addGrade(name, grade);
+        } catch (UnknownStudentException | GradeAlreadyExistException e) {
             e.printStackTrace(System.out);
-        }
-        try {
-            group.addGrade("Taras", 5);
-        } catch (UnknownStudentException e) {
-            System.out.println(e);
+        } catch (RuntimeException e) {
+            e.printStackTrace(System.out);
         }
     }
 }
