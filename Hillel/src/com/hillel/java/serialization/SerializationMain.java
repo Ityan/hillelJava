@@ -1,37 +1,52 @@
 package com.hillel.java.serialization;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * Created by ITyan on 04.06.2015.
+ * @author ITyan on 04.06.2015.
  */
 public class SerializationMain {
 
     public static void main(String[] args) {
 
-        Car car = new Car("BMW");
+        CarOwner owner = new CarOwner("Ivan");
 
-        //save(car);
+        Car bmw = new Car("BMW", 20, owner);
 
-        car = load();
+        Car merc = new Car("Merc", 12, owner);
 
-        System.out.println(car);
+        List<Car> cars = new ArrayList<>();
+
+        cars.add(bmw);
+        cars.add(merc);
+
+        save(cars);
+        System.out.println("car saved");
+
+        cars = load();
+
+        bmw = cars.get(0);
+        merc = cars.get(1);
+
+        System.out.println("owner is some object: " + (bmw.getCarOwner() == merc.getCarOwner()));
 
     }
 
-    private static Car load() {
-        Car car = null;
-        try (ObjectInputStream outputStream = new ObjectInputStream(new FileInputStream("hillel/serializedCar.dat"))){
-            car = (Car) outputStream.readObject();
+    private static List<Car> load() {
+        List<Car> cars = null;
+        try (ObjectInputStream outputStream = new ObjectInputStream(new FileInputStream("hillel/serializedCar.dat"))) {
+            cars = (List<Car>) outputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return car;
+        return cars;
     }
 
-    private static void save(Car car) {
-        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("hillel/serializedCar.dat"))){
-            outputStream.writeObject(car);
+    private static void save(List<Car> cars) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("hillel/serializedCar.dat"))) {
+            outputStream.writeObject(cars);
         } catch (IOException e) {
             e.printStackTrace();
         }

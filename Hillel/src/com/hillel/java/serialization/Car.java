@@ -7,21 +7,39 @@ import java.io.Serializable;
  */
 public class Car implements Serializable {
 
-    private static final long serialVersionUID = 1L;
-    String manufacturer;
+    private static final long serialVersionUID = 3L;
 
-    public Car(String manufacturer) {
+    private String manufacturer;
+
+    transient private int fuelConsumption;// transient - устанавливает null в сериализации
+
+    private CarOwner carOwner;
+
+    public Car(String manufacturer, int fuelConsumption, CarOwner carOwner) {
         this.manufacturer = manufacturer;
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
+        this.fuelConsumption = fuelConsumption;
+        this.carOwner = carOwner;
+        System.out.println("In constructor");
     }
 
     @Override
     public String toString() {
         return "Car{" +
                 "manufacturer='" + manufacturer + '\'' +
+                ", fuelConsumption=" + fuelConsumption +
+                ", carOwner=" + carOwner +
                 '}';
+    }
+
+    public String getManufacturer() {
+        return manufacturer;
+    }
+
+    public void setManufacturer(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
+    public CarOwner getCarOwner() {
+        return carOwner;
     }
 }
