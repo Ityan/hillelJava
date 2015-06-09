@@ -1,4 +1,4 @@
-package RPG_Swing;
+package lesson_7.RPG_Swing;
 
 /**
  * @author ITyan on 17.05.2015.
