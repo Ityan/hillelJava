@@ -13,25 +13,10 @@ public class Weapon {
 
     private Random random = new Random();
 
-    public Weapon() {
-
-        int randomWeaponChoice = random.nextInt(3);
-
-        if (randomWeaponChoice == 0) {
-            name = "Sword";
-            min = new Damage(6, 0, 0);
-            max = new Damage(9, 0, 0);
-        }
-        if (randomWeaponChoice == 1) {
-            name = "Hammer";
-            min = new Damage(0, 7, 0);
-            max = new Damage(0, 8, 0);
-        }
-        if (randomWeaponChoice == 2) {
-            name = "Bow";
-            min = new Damage(0, 0, 5);
-            max = new Damage(0, 0, 10);
-        }
+    public Weapon(String name, Damage min, Damage max) {
+        this.name = name;
+        this.min = min;
+        this.max = max;
     }
 
     public Damage getDamage() {

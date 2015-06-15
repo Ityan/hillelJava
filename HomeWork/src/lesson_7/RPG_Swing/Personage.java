@@ -17,25 +17,10 @@ public class Personage {
     private String name;
     private int health;
 
-    public Personage() {
-        weapon = new Weapon();
-        armor = new Armor();
-        int personageChoice = new Random().nextInt(3);
-        if (personageChoice == 0) {
-            name = "Human";
-            bonus = new Damage(6, 0, 0);
-            health = 100;
-        }
-        if (personageChoice == 1) {
-            name = "Ork";
-            bonus = new Damage(0, 7, 0);
-            health = 110;
-        }
-        if (personageChoice == 2) {
-            name = "Elf";
-            bonus = new Damage(0, 0, 5);
-            health = 90;
-        }
+    public Personage(String name, Damage bonus, int health) {
+        this.name = name;
+        this.bonus = bonus;
+        this.health = health;
     }
 
     public Damage getPersonageDamage() {
@@ -70,5 +55,25 @@ public class Personage {
         return "<html>Name: " + name +
                 "<li>Weapon: " + weapon.getName() +
                 "<li>Armor: " + armor.getName() + "</html>";
+    }
+
+    public void setWeapon(Weapon weapon) {
+        this.weapon = weapon;
+    }
+
+    public void setArmor(Armor armor) {
+        this.armor = armor;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
+    public Armor getArmor() {
+        return armor;
+    }
+
+    public String getName() {
+        return name;
     }
 }
