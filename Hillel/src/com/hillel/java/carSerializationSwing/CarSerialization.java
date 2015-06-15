@@ -1,4 +1,4 @@
-package com.hillel.java.carSerialization;
+package com.hillel.java.carSerializationSwing;
 
 import com.hillel.java.serialization.Car;
 
@@ -90,6 +90,5 @@ public class CarSerialization extends JFrame{
                 }
             }
         });
-        //5
     }
 }

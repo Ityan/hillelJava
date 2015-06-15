@@ -35,8 +35,7 @@ public class BattleField extends JFrame {
 
         createPersonages();
 
-        label1.setText(player1.toString());
-        label2.setText(player2.toString());
+        player1.attack(button1, player2,health2);
     }
 
     public void createPersonages() {
@@ -47,6 +46,9 @@ public class BattleField extends JFrame {
         player2 = randomPersonage();
         player2.setWeapon(randomWeapon());
         player2.setArmor(randomArmor());
+
+        label1.setText(player1.toString());
+        label2.setText(player2.toString());
     }
 
     public void attack(JButton button, Personage personage, JProgressBar healthBar) {
