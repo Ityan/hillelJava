@@ -15,6 +15,10 @@ public class Car implements Serializable {
 
     private CarOwner carOwner;
 
+    public Car(String manufacturer) {
+        this.manufacturer = manufacturer;
+    }
+
     public Car(String manufacturer, int fuelConsumption, CarOwner carOwner) {
         this.manufacturer = manufacturer;
         this.fuelConsumption = fuelConsumption;
