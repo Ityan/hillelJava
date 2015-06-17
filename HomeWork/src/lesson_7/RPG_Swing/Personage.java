@@ -1,11 +1,5 @@
 package lesson_7.RPG_Swing;
 
-
-import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.Random;
-
 /**
  * @author ITyan on 17.05.2015.
  */
@@ -30,24 +24,9 @@ public class Personage {
         return damage;
     }
 
-    public void attack(JButton button, Personage personage, JProgressBar healthBar) {
-        button.addActionListener(new ActionListener() {
-            int dmg = getPersonageDamage().inHealthBarDamage();
-            int hp = personage.health;
-            int result;
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                hp -= dmg - (dmg / 100 * armor.getDefence());
-                result = hp * 100 / personage.health;
-                healthBar.setValue(result);
-                healthBar.setString("Health " + result + " %");
-                if (result <= 0) {
-                    JOptionPane.showMessageDialog(null, name + " - WIN!");
-                    System.exit(0);
-                }
-            }
-        });
+    public int takeHealth() {
+        int dmg = getPersonageDamage().inHealthBarDamage();
+        return (dmg - (dmg / 100 * armor.getDefence()));
     }
 
     @Override
@@ -67,10 +46,6 @@ public class Personage {
 
     public int getHealth() {
         return health;
-    }
-
-    public Armor getArmor() {
-        return armor;
     }
 
     public String getName() {

@@ -8,7 +8,7 @@ import java.util.Random;
 /**
  * @author ITyan on 03.06.2015.
  */
-public class BattleField extends JFrame {
+public class Main extends JFrame {
 
     private JPanel panel;
     private JProgressBar health1;
@@ -24,7 +24,7 @@ public class BattleField extends JFrame {
     private Random random = new Random();
 
 
-    public BattleField() {
+    public Main() {
         setContentPane(panel);
         setTitle("SIMPLE RPG");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -35,7 +35,12 @@ public class BattleField extends JFrame {
 
         createPersonages();
 
-        player1.attack(button1, player2,health2);
+        attack(button1, player1, player2, health2);
+        attack(button2, player2, player1, health1);
+    }
+
+    public static void main(String[] args) {
+        new Main();
     }
 
     public void createPersonages() {
@@ -51,20 +56,18 @@ public class BattleField extends JFrame {
         label2.setText(player2.toString());
     }
 
-    public void attack(JButton button, Personage personage, JProgressBar healthBar) {
-        button.addActionListener(new ActionListener() {
-            int dmg = personage.getPersonageDamage().inHealthBarDamage();
-            int hp = personage.getHealth();
+    public void attack(JButton attackButton, Personage attackingPers, Personage defendingPers, JProgressBar defendHealthBar) {
+        attackButton.addActionListener(new ActionListener() {
+            int hp = defendingPers.getHealth();
             int result;
-
             @Override
             public void actionPerformed(ActionEvent e) {
-                hp -= dmg - (dmg / 100 * personage.getArmor().getDefence());
-                result = hp * 100 / personage.getHealth();
-                healthBar.setValue(result);
-                healthBar.setString("Health " + result + " %");
+                hp -= attackingPers.takeHealth();
+                result = hp * 100 / defendingPers.getHealth();
+                defendHealthBar.setValue(result);
+                defendHealthBar.setString("Health " + result + " %");
                 if (result <= 0) {
-                    JOptionPane.showMessageDialog(null, personage.getName() + " - WIN!");
+                    JOptionPane.showMessageDialog(null, attackingPers.getName() + " - WIN!");
                     System.exit(0);
                 }
             }

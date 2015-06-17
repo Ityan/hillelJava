@@ -1,7 +1,5 @@
 package lesson_7.RPG_Swing;
 
-import java.util.Random;
-
 /**
  * @author ITyan 09.06.2015.
  */
@@ -15,7 +13,7 @@ public class Armor {
         this.defence = defence;
     }
 
-    public double getDefence() {
+    public int getDefence() {
         return defence;
     }
 
