@@ -24,9 +24,9 @@ public class Personage {
         return damage;
     }
 
-    public int takeHealth() {
+    public int takeHealth(Personage p) {
         int dmg = getPersonageDamage().inHealthBarDamage();
-        return (dmg - (dmg / 100 * armor.getDefence()));
+        return (dmg - (dmg / 100 * p.getArmor().getDefence()));
     }
 
     @Override
@@ -46,6 +46,10 @@ public class Personage {
 
     public int getHealth() {
         return health;
+    }
+
+    public Armor getArmor() {
+        return armor;
     }
 
     public String getName() {

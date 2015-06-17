@@ -62,7 +62,7 @@ public class Main extends JFrame {
             int result;
             @Override
             public void actionPerformed(ActionEvent e) {
-                hp -= attackingPers.takeHealth();
+                hp -= attackingPers.takeHealth(defendingPers);
                 result = hp * 100 / defendingPers.getHealth();
                 defendHealthBar.setValue(result);
                 defendHealthBar.setString("Health " + result + " %");
