@@ -64,7 +64,8 @@ public class Main extends JFrame {
                 result = defendingPers.takeHealth(attackingPers.getPersonageDamage());
                 defendHealthBar.setValue(result);
                 defendHealthBar.setString("Health " + result + " %");
-                if (defendingPers.getHealth() <= 0) {
+
+                if (defendingPers.isDead()) {
                     JOptionPane.showMessageDialog(null, attackingPers.getName() + " - WIN!");
                     System.exit(0);
                 }
