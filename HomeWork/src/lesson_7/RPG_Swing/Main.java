@@ -58,15 +58,13 @@ public class Main extends JFrame {
 
     public void attack(JButton attackButton, Personage attackingPers, Personage defendingPers, JProgressBar defendHealthBar) {
         attackButton.addActionListener(new ActionListener() {
-            int hp = defendingPers.getHealth();
             int result;
             @Override
             public void actionPerformed(ActionEvent e) {
-                hp -= attackingPers.takeHealth(defendingPers);
-                result = hp * 100 / defendingPers.getHealth();
+                result = defendingPers.takeHealth(attackingPers.getPersonageDamage());
                 defendHealthBar.setValue(result);
                 defendHealthBar.setString("Health " + result + " %");
-                if (result <= 0) {
+                if (defendingPers.getHealth() <= 0) {
                     JOptionPane.showMessageDialog(null, attackingPers.getName() + " - WIN!");
                     System.exit(0);
                 }

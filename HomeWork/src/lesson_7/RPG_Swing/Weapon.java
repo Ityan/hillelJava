@@ -21,10 +21,10 @@ public class Weapon {
 
     public Damage getDamage() {
         Damage d = new Damage();
-        d.plusDamage(max);
-        d.minusDamage(min);
-        d.multiplyDamage(random.nextDouble());
-        d.plusDamage(min);
+        d.plus(max);
+        d.minus(min);
+        d.multiply(random.nextDouble());
+        d.plus(min);
         return d;
     }
 

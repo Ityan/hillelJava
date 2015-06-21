@@ -10,23 +10,26 @@ public class Personage {
     private Damage bonus;
     private String name;
     private int health;
+    private int maxHealth;
 
     public Personage(String name, Damage bonus, int health) {
         this.name = name;
         this.bonus = bonus;
         this.health = health;
+        maxHealth = health;
     }
 
     public Damage getPersonageDamage() {
         Damage damage = new Damage();
-        damage.plusDamage(weapon.getDamage());
-        damage.plusDamage(bonus);
+        damage.plus(weapon.getDamage());
+        damage.plus(bonus);
         return damage;
     }
 
-    public int takeHealth(Personage p) {
-        int dmg = getPersonageDamage().inHealthBarDamage();
-        return (dmg - (dmg / 100 * p.getArmor().getDefence()));
+    public int takeHealth(Damage damage) {
+        int dmg = damage.healthPoints();
+        health -= dmg - (dmg / 100 * armor.getDefence());
+        return (health * 100 / maxHealth);
     }
 
     @Override
@@ -46,10 +49,6 @@ public class Personage {
 
     public int getHealth() {
         return health;
-    }
-
-    public Armor getArmor() {
-        return armor;
     }
 
     public String getName() {

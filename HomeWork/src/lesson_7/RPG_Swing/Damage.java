@@ -18,31 +18,26 @@ public class Damage {
         this.distanceDamage = distanceDamage;
     }
 
-    public void plusDamage(Damage d) {
+    public void plus(Damage d) {
         cuttingDamage += d.cuttingDamage;
         crushingDamage += d.crushingDamage;
         distanceDamage += d.distanceDamage;
     }
 
-    public void minusDamage(Damage d) {
+    public void minus(Damage d) {
         cuttingDamage -= d.cuttingDamage;
         crushingDamage -= d.crushingDamage;
         distanceDamage -= d.distanceDamage;
     }
 
-    public void multiplyDamage(double d) {
+    public void multiply(double d) {
         cuttingDamage *= d;
         crushingDamage *= d;
         distanceDamage *= d;
     }
 
-    public int inHealthBarDamage() {
-        return Math.round(cuttingDamage + crushingDamage + distanceDamage);
-    }
-
-    @Override
-    public String toString() {
-        return "" + (cuttingDamage + crushingDamage + distanceDamage);
+    public int healthPoints() {
+        return cuttingDamage + crushingDamage + distanceDamage;
     }
 
     @Override
