@@ -41,6 +41,11 @@ public class Damage {
     }
 
     @Override
+    public String toString() {
+        return "" + healthPoints();
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

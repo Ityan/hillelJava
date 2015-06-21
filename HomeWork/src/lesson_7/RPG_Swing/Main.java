@@ -17,6 +17,7 @@ public class Main extends JFrame {
     private JButton button2;
     private JLabel label1;
     private JLabel label2;
+    private JLabel historyLabel;
 
     private Personage player1;
     private Personage player2;
@@ -64,6 +65,9 @@ public class Main extends JFrame {
                 result = defendingPers.takeHealth(attackingPers.getPersonageDamage());
                 defendHealthBar.setValue(result);
                 defendHealthBar.setString("Health " + result + " %");
+
+                historyLabel.setText(attackingPers.getName() + " attacks " + defendingPers.getName() +
+                                        " in " + attackingPers.getPersonageDamage() + " points damage." );
 
                 if (defendingPers.isDead()) {
                     JOptionPane.showMessageDialog(null, attackingPers.getName() + " - WIN!");

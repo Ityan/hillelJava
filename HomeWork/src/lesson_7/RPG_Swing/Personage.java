@@ -56,6 +56,14 @@ public class Personage {
         return name;
     }
 
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public int getHealth() {
+        return health;
+    }
+
     public boolean isDead() {
         return isDead;
     }
