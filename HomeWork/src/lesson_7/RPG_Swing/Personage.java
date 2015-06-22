@@ -11,14 +11,12 @@ public class Personage {
     private String name;
     private int health;
     private int maxHealth;
-    private boolean isDead;
 
     public Personage(String name, Damage bonus, int health) {
         this.name = name;
         this.bonus = bonus;
         this.health = health;
         maxHealth = health;
-        isDead = false;
     }
 
     public Damage getPersonageDamage() {
@@ -31,9 +29,6 @@ public class Personage {
     public int takeHealth(Damage damage) {
         int dmg = damage.healthPoints();
         health -= dmg - (dmg / 100 * armor.getDefence());
-        if (health <= 0) {
-            isDead = true;
-        }
         return (health * 100 / maxHealth);
     }
 
@@ -65,6 +60,6 @@ public class Personage {
     }
 
     public boolean isDead() {
-        return isDead;
+        return health <= 0;
     }
 }
