@@ -7,15 +7,9 @@ public class Employee extends Person {
 
     private String department;
 
-    public Employee() {
-        super("default name");
-        System.out.println("creating Employee");
-    }
-
     public Employee(String name, String department) {
         super(name);
         this.department = department;
-        System.out.println("creating Employee");
     }
 
     public String getDepartment() {

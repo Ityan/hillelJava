@@ -1,7 +1,7 @@
 package com.hillel.java.multiTreading.producerConcumer;
 
 /**
- * Created by ITyan on 22.06.2015.
+ * @author ITyan on 22.06.2015.
  */
 public class Bucket {
     private volatile int count;
@@ -13,6 +13,7 @@ public class Bucket {
                 try {
                     wait();
                 } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
                     return;
                 }
             }
@@ -26,6 +27,7 @@ public class Bucket {
             try {
                 wait();
             } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
                 return;
             }
         }
