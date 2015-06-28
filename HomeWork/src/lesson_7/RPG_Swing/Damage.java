@@ -40,6 +40,13 @@ public class Damage {
         return cuttingDamage + crushingDamage + distanceDamage;
     }
 
+    public static Damage valueOf(String cut, String crush, String dist) {
+        int cutting = Integer.valueOf(cut);
+        int crushing = Integer.valueOf(crush);
+        int distance = Integer.valueOf(dist);
+        return new Damage(cutting, crushing, distance);
+    }
+
     @Override
     public String toString() {
         return "" + healthPoints();
