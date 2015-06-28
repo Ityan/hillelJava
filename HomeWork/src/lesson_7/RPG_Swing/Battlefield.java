@@ -57,17 +57,18 @@ public class Battlefield {
     }
 
     private Weapon randomWeapon() {
-
         int randomWeaponChoice = random.nextInt(3);
 
-        if (randomWeaponChoice == 0) {
-            properties = loadProperties(FilePath + "sword.properties");
-        }
-        if (randomWeaponChoice == 1) {
-            properties = loadProperties(FilePath + "hammer.properties");
-        }
-        if (randomWeaponChoice == 2) {
-            properties = loadProperties(FilePath + "bow.properties");
+        switch (randomWeaponChoice) {
+            case 0:
+                properties = loadProperties(FilePath + "sword.properties");
+                break;
+            case 1:
+                properties = loadProperties(FilePath + "hammer.properties");
+                break;
+            case 2:
+                properties = loadProperties(FilePath + "bow.properties");
+                break;
         }
 
         String name = properties.getProperty("name");
@@ -82,17 +83,18 @@ public class Battlefield {
     }
 
     private Armor randomArmor() {
-
         int randomArmorChoice = random.nextInt(3);
 
-        if (randomArmorChoice == 0) {
-            properties = loadProperties(FilePath + "helmet.properties");
-        }
-        if (randomArmorChoice == 1) {
-            properties = loadProperties(FilePath + "breastplate.properties");
-        }
-        if (randomArmorChoice == 2) {
-            properties = loadProperties(FilePath + "greaves.properties");
+        switch (randomArmorChoice) {
+            case 0:
+                properties = loadProperties(FilePath + "helmet.properties");
+                break;
+            case 1:
+                properties = loadProperties(FilePath + "breastplate.properties");
+                break;
+            case 2:
+                properties = loadProperties(FilePath + "greaves.properties");
+                break;
         }
 
         String name = properties.getProperty("name");
