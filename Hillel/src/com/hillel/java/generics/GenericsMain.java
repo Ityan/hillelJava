@@ -6,10 +6,11 @@ import com.hillel.java.inheritence.Person;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by ITyan on 25.06.2015.
+ * @author ITyan on 25.06.2015.
  */
 public class GenericsMain {
     public static void main(String[] args) {
@@ -37,6 +38,14 @@ public class GenericsMain {
 
         addEmployee(employees);
         addEmployee(persons);
+
+        managers = Collections.<Manager>emptyList();
+
+        employees = Collections.singletonList(manager);
+    }
+
+    public static <T> List<T> copyCollection(List<T> source) {
+        return new ArrayList<>(source);
     }
 
     public static void addEmployee(List<? super Employee> employees) {
