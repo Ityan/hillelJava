@@ -1,9 +1,13 @@
 package lesson_7.RPG_Swing;
 
+import java.io.Serializable;
+
 /**
  * @author ITyan on 17.05.2015.
  */
-public class Damage {
+public class Damage implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private int cuttingDamage;
     private int crushingDamage;

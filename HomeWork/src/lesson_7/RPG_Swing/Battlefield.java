@@ -1,19 +1,21 @@
 package lesson_7.RPG_Swing;
 
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.Properties;
 import java.util.Random;
 
 /**
  * @author Igor on 28.06.2015.
  */
-public class Battlefield {
-    private Properties properties;
-    private String FilePath = "HomeWork\\src\\lesson_7\\RPG_Swing\\resources\\";
+public class Battlefield implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     private Personage player1;
     private Personage player2;
+
+    private Properties properties;
+    private String filePath = "HomeWork\\src\\lesson_7\\RPG_Swing\\resources\\";
 
     private Random random = new Random();
 
@@ -37,13 +39,13 @@ public class Battlefield {
 
         switch (personageChoice) {
             case 0:
-                properties = loadProperties(FilePath + "human.properties");
+                properties = loadProperties(filePath + "human.properties");
                 break;
             case 1:
-                properties = loadProperties(FilePath + "ork.properties");
+                properties = loadProperties(filePath + "ork.properties");
                 break;
             case 2:
-                properties = loadProperties(FilePath + "elf.properties");
+                properties = loadProperties(filePath + "elf.properties");
                 break;
         }
 
@@ -61,13 +63,13 @@ public class Battlefield {
 
         switch (randomWeaponChoice) {
             case 0:
-                properties = loadProperties(FilePath + "sword.properties");
+                properties = loadProperties(filePath + "sword.properties");
                 break;
             case 1:
-                properties = loadProperties(FilePath + "hammer.properties");
+                properties = loadProperties(filePath + "hammer.properties");
                 break;
             case 2:
-                properties = loadProperties(FilePath + "bow.properties");
+                properties = loadProperties(filePath + "bow.properties");
                 break;
         }
 
@@ -87,13 +89,13 @@ public class Battlefield {
 
         switch (randomArmorChoice) {
             case 0:
-                properties = loadProperties(FilePath + "helmet.properties");
+                properties = loadProperties(filePath + "helmet.properties");
                 break;
             case 1:
-                properties = loadProperties(FilePath + "breastplate.properties");
+                properties = loadProperties(filePath + "breastplate.properties");
                 break;
             case 2:
-                properties = loadProperties(FilePath + "greaves.properties");
+                properties = loadProperties(filePath + "greaves.properties");
                 break;
         }
 
@@ -112,6 +114,26 @@ public class Battlefield {
             throw new RuntimeException();
         }
         return properties;
+    }
+
+    public static void save(Battlefield battlefield) {
+        try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("HomeWork\\src\\lesson_7\\RPG_Swing" +
+                "\\resources\\serializedBattlefield.dat"))) {
+            outputStream.writeObject(battlefield);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Battlefield load() {
+        Battlefield battlefield = null;
+        try (ObjectInputStream outputStream = new ObjectInputStream(new FileInputStream("HomeWork\\src\\lesson_7\\RPG_Swing" +
+                "\\resources\\serializedBattlefield.dat"))) {
+            battlefield = (Battlefield) outputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return battlefield;
     }
 
     public Personage getPlayer1() {

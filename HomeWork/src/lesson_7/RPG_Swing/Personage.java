@@ -1,9 +1,13 @@
 package lesson_7.RPG_Swing;
 
+import java.io.Serializable;
+
 /**
  * @author ITyan on 17.05.2015.
  */
-public class Personage {
+public class Personage implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private Weapon weapon;
     private Armor armor;

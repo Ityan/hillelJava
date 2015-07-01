@@ -3,6 +3,7 @@ package lesson_7.RPG_Swing;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.*;
 
 /**
  * @author ITyan on 03.06.2015.
@@ -60,6 +61,37 @@ public class Main extends JFrame {
                     JOptionPane.showMessageDialog(null, attackingPers.getName() + " - WIN!");
                     System.exit(0);
                 }
+            }
+        });
+
+        initMenuBar();
+    }
+
+    private void initMenuBar() {
+        JMenuBar menuBar = new JMenuBar();
+
+        setJMenuBar(menuBar);
+
+        JMenu menuFile = new JMenu("File");
+        menuBar.add(menuFile);
+
+        JMenuItem saveItem = new JMenuItem("Save");
+        menuFile.add(saveItem);
+
+        saveItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Battlefield.save(bf);
+            }
+        });
+
+        JMenuItem loadItem = new JMenuItem("Load");
+        menuFile.add(loadItem);
+
+        loadItem.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                bf = Battlefield.load();
             }
         });
     }

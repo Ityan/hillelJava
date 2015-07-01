@@ -1,11 +1,14 @@
 package lesson_7.RPG_Swing;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  * @author ITyan on 17.05.2015.
  */
-public class Weapon {
+public class Weapon implements Serializable{
+
+    private static final long serialVersionUID = 1L;
 
     private String name;
     private Damage min;
