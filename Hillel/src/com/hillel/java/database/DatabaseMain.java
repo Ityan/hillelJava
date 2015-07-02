@@ -13,6 +13,47 @@ public class DatabaseMain {
 
         Connection connection = DriverManager.getConnection(connectionString, "postgres", "postgres");
 
+        read(connection);
+        //updateWithInjection(connection, 20, "Mouse' or ''='");
+        update(connection, 34, "Mouse");
+        delete(connection, "Mouse");
+        read(connection);
+
+        connection.close();
+    }
+
+    private static void delete(Connection connection, String name) throws SQLException {
+        String sql = "DELETE FROM store WHERE name = ?";
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+        statement.setString(1, name);
+
+        statement.executeUpdate();
+        statement.close();
+    }
+
+    private static void update(Connection connection, int price, String name) throws SQLException {
+        String sql = "UPDATE store SET price = ? WHERE name = ?";
+
+        PreparedStatement statement = connection.prepareStatement(sql);
+
+        statement.setInt(1, price);
+        statement.setString(2, name);
+
+        statement.executeUpdate();
+        statement.close();
+    }
+
+    private static void updateWithInjection(Connection connection, int newPrice, String name) throws SQLException {
+        Statement statement = connection.createStatement();
+        String sql = "UPDATE store SET price = " + newPrice + " WHERE name = '" + name + "'";
+        System.out.println("Update command: " + sql);
+
+        statement.executeUpdate(sql);
+        statement.close();
+    }
+
+    private static void read(Connection connection) throws SQLException {
         Statement statement = connection.createStatement();
         String sql = "SELECT name, category, price FROM store";
         ResultSet resultSet = statement.executeQuery(sql);
@@ -28,6 +69,5 @@ public class DatabaseMain {
 
         resultSet.close();
         statement.close();
-        connection.close();
     }
 }
