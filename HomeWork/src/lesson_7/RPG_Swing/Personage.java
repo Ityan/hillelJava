@@ -58,4 +58,8 @@ public class Personage implements Serializable {
     public boolean isDead() {
         return health <= 0;
     }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
 }

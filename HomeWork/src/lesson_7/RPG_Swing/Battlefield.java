@@ -127,9 +127,9 @@ public class Battlefield implements Serializable{
 
     public static Battlefield load() {
         Battlefield battlefield = null;
-        try (ObjectInputStream outputStream = new ObjectInputStream(new FileInputStream("HomeWork\\src\\lesson_7\\RPG_Swing" +
+        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("HomeWork\\src\\lesson_7\\RPG_Swing" +
                 "\\resources\\serializedBattlefield.dat"))) {
-            battlefield = (Battlefield) outputStream.readObject();
+            battlefield = (Battlefield) inputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
