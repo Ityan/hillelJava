@@ -1,8 +1,6 @@
 package lesson_7.RPG_Swing;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * @author ITyan on 03.06.2015.
@@ -42,22 +40,16 @@ public class Main extends JFrame {
     public void attack() {
         repaint();
 
-        button1.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                buttonAction(game.getPlayer1(), game.getPlayer2(), health2);
-                button1.setEnabled(false);
-                button2.setEnabled(true);
-            }
+        button1.addActionListener(e -> {
+            buttonAction(game.getPlayer1(), game.getPlayer2(), health2);
+            button1.setEnabled(false);
+            button2.setEnabled(true);
         });
 
-        button2.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                buttonAction(game.getPlayer2(), game.getPlayer1(), health1);
-                button1.setEnabled(true);
-                button2.setEnabled(false);
-            }
+        button2.addActionListener(e -> {
+            buttonAction(game.getPlayer2(), game.getPlayer1(), health1);
+            button1.setEnabled(true);
+            button2.setEnabled(false);
         });
     }
 
@@ -87,23 +79,15 @@ public class Main extends JFrame {
         JMenuItem saveItem = new JMenuItem("Save");
         menuFile.add(saveItem);
 
-        saveItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                GameBuilder.save(game);
-            }
-        });
+        saveItem.addActionListener(e -> GameBuilder.save(game));
 
         JMenuItem loadItem = new JMenuItem("Load");
         menuFile.add(loadItem);
 
-        loadItem.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                game = GameBuilder.load();
-                historyLabel.setText(game.getPlayer1().getName() + " VS " + game.getPlayer2().getName());
-                repaint();
-            }
+        loadItem.addActionListener(e -> {
+            game = GameBuilder.load();
+            historyLabel.setText(game.getPlayer1().getName() + " VS " + game.getPlayer2().getName());
+            repaint();
         });
     }
 
