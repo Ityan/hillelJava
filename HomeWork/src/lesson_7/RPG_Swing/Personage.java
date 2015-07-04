@@ -59,7 +59,11 @@ public class Personage implements Serializable {
         return health <= 0;
     }
 
-    public void setHealth(int health) {
-        this.health = health;
+    public int getHealth() {
+        return health;
+    }
+
+    public int getMaxHealth() {
+        return maxHealth;
     }
 }

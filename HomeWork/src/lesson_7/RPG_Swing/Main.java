@@ -3,7 +3,6 @@ package lesson_7.RPG_Swing;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
 
 /**
  * @author ITyan on 03.06.2015.
@@ -19,7 +18,7 @@ public class Main extends JFrame {
     private JLabel label2;
     private JLabel historyLabel;
 
-    private Battlefield bf = new Battlefield();
+    private Game game = new Game();
 
     public Main() {
         setContentPane(panel);
@@ -30,41 +29,51 @@ public class Main extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
-        label1.setText(bf.getPlayer1().toString());
-        label2.setText(bf.getPlayer2().toString());
-
+        initMenuBar();
         historyLabel.setText("The battle started!");
 
-        attack(button1, bf.getPlayer1(), bf.getPlayer2(), health2);
-        attack(button2, bf.getPlayer2(), bf.getPlayer1(), health1);
+        attack();
     }
 
     public static void main(String[] args) {
         new Main();
     }
 
-    public void attack(JButton attackButton, Personage attackingPers, Personage defendingPers, JProgressBar defendHealthBar) {
-        attackButton.addActionListener(new ActionListener() {
-            int result;
+    public void attack() {
+        repaint();
 
+        button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                result = defendingPers.takeHealth(attackingPers.getPersonageDamage());
-                defendHealthBar.setValue(result);
-                defendHealthBar.setString("Health " + result + " %");
-
-                historyLabel.setText(attackingPers.getName() + " attacks " + defendingPers.getName() +
-                        " in " + attackingPers.getPersonageDamage() + " points damage.");
-
-                if (defendingPers.isDead()) {
-                    historyLabel.setText("END GAME");
-                    JOptionPane.showMessageDialog(null, attackingPers.getName() + " - WIN!");
-                    System.exit(0);
-                }
+                buttonAction(game.getPlayer1(), game.getPlayer2(), health2);
+                button1.setEnabled(false);
+                button2.setEnabled(true);
             }
         });
 
-        initMenuBar();
+        button2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buttonAction(game.getPlayer2(), game.getPlayer1(), health1);
+                button1.setEnabled(true);
+                button2.setEnabled(false);
+            }
+        });
+    }
+
+    private void buttonAction(Personage attackingPers, Personage defendingPers, JProgressBar defendHealthBar) {
+        int result = defendingPers.takeHealth(attackingPers.getPersonageDamage());
+        defendHealthBar.setValue(result);
+        defendHealthBar.setString("Health " + result + " %");
+
+        historyLabel.setText(attackingPers.getName() + " attacks " + defendingPers.getName() +
+                " in " + attackingPers.getPersonageDamage() + " points damage.");
+
+        if (defendingPers.isDead()) {
+            historyLabel.setText("END GAME");
+            JOptionPane.showMessageDialog(null, attackingPers.getName() + " - WIN!");
+            System.exit(0);
+        }
     }
 
     private void initMenuBar() {
@@ -81,7 +90,7 @@ public class Main extends JFrame {
         saveItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Battlefield.save(bf);
+                Game.save(game);
             }
         });
 
@@ -91,8 +100,21 @@ public class Main extends JFrame {
         loadItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                bf = Battlefield.load();
+                game = Game.load();
+                repaint();
             }
         });
+    }
+
+    @Override
+    public void repaint() {
+        label1.setText(game.getPlayer1().toString());
+        label2.setText(game.getPlayer2().toString());
+
+        health1.setValue(game.getPlayer1().getHealth() * 100 / game.getPlayer1().getMaxHealth());
+        health1.setString("Health " + (game.getPlayer1().getHealth() * 100 / game.getPlayer1().getMaxHealth()) + " %");
+
+        health2.setValue(game.getPlayer2().getHealth() * 100 / game.getPlayer2().getMaxHealth());
+        health2.setString("Health " + (game.getPlayer2().getHealth() * 100 / game.getPlayer2().getMaxHealth()) + " %");
     }
 }
