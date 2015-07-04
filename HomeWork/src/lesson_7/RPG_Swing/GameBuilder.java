@@ -7,7 +7,7 @@ import java.util.Random;
 /**
  * @author Igor on 28.06.2015.
  */
-public class Game implements Serializable{
+public class GameBuilder implements Serializable{
 
     private static final long serialVersionUID = 1L;
 
@@ -19,7 +19,7 @@ public class Game implements Serializable{
 
     private Random random = new Random();
 
-    public Game() {
+    public GameBuilder() {
         createPersonages();
     }
 
@@ -116,7 +116,7 @@ public class Game implements Serializable{
         return properties;
     }
 
-    public static void save(Game game) {
+    public static void save(GameBuilder game) {
         try (ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream("HomeWork\\src\\lesson_7\\RPG_Swing" +
                 "\\resources\\serializedBattlefield.dat"))) {
             outputStream.writeObject(game);
@@ -125,11 +125,11 @@ public class Game implements Serializable{
         }
     }
 
-    public static Game load() {
-        Game game = null;
+    public static GameBuilder load() {
+        GameBuilder game = null;
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("HomeWork\\src\\lesson_7\\RPG_Swing" +
                 "\\resources\\serializedBattlefield.dat"))) {
-            game = (Game) inputStream.readObject();
+            game = (GameBuilder) inputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }

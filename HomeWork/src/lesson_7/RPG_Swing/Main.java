@@ -18,7 +18,7 @@ public class Main extends JFrame {
     private JLabel label2;
     private JLabel historyLabel;
 
-    private Game game = new Game();
+    private GameBuilder game = new GameBuilder();
 
     public Main() {
         setContentPane(panel);
@@ -90,7 +90,7 @@ public class Main extends JFrame {
         saveItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Game.save(game);
+                GameBuilder.save(game);
             }
         });
 
@@ -100,7 +100,8 @@ public class Main extends JFrame {
         loadItem.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                game = Game.load();
+                game = GameBuilder.load();
+                historyLabel.setText(game.getPlayer1().getName() + " VS " + game.getPlayer2().getName());
                 repaint();
             }
         });
