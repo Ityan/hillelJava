@@ -16,7 +16,7 @@ public class Main extends JFrame {
     private JLabel label2;
     private JLabel historyLabel;
 
-    private GameBuilder game = new GameBuilder();
+     GameBuilder game = new GameBuilder();
 
     public Main() {
         setContentPane(panel);
@@ -64,7 +64,7 @@ public class Main extends JFrame {
         if (defendingPers.isDead()) {
             historyLabel.setText("END GAME");
             JOptionPane.showMessageDialog(null, attackingPers.getName() + " - WIN!");
-            System.exit(0);
+            System.exit(EXIT_ON_CLOSE);
         }
     }
 

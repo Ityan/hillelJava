@@ -19,7 +19,7 @@ public class MultiThreadClient {
     }
 
     public void start() throws IOException {
-        socket = new Socket("192.168.0.112", 3111);
+        socket = new Socket("192.168.0.104", 3111);
         writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
 
         Scanner scanner = new Scanner(System.in);
