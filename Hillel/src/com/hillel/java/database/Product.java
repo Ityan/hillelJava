@@ -7,11 +7,29 @@ public class Product {
     private String name;
     private String category;
     private int price;
+    private byte[] image;
 
-    public Product(String name, String category, int price) {
+    public Product(String name, String category, int price, byte[] image) {
         this.name = name;
         this.category = category;
         this.price = price;
+        this.image = image;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public byte[] getImage() {
+        return image;
     }
 
     @Override
