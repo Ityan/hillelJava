@@ -1,6 +1,6 @@
 package lesson_7.client_server.test;
 
-import lesson_7.client_server.game.GameBuilder;
+import lesson_7.RPG_Swing.GameBuilder;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

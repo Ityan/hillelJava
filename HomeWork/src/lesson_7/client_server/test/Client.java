@@ -1,7 +1,7 @@
 package lesson_7.client_server.test;
 
-import lesson_7.client_server.game.GameBuilder;
-import lesson_7.client_server.game.Personage;
+import lesson_7.RPG_Swing.GameBuilder;
+import lesson_7.RPG_Swing.Personage;
 
 import javax.swing.*;
 import java.io.IOException;
