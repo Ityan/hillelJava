@@ -6,10 +6,10 @@ package com.hillel.java.database;
 public class Product {
     private String name;
     private String category;
-    private int price;
+    private Integer price;
     private byte[] image;
 
-    public Product(String name, String category, int price, byte[] image) {
+    public Product(String name, String category, Integer price, byte[] image) {
         this.name = name;
         this.category = category;
         this.price = price;
@@ -24,7 +24,7 @@ public class Product {
         return category;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 

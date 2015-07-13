@@ -14,9 +14,16 @@ public class DatabaseMain {
         Connection connection = DriverManager.getConnection(connectionString, "postgres", "postgres");
 
         read(connection);
-        //updateWithInjection(connection, 20, "Mouse' or ''='");
-        update(connection, 34, "Mouse");
-        delete(connection, "Mouse");
+
+        //updateCurrent(connection, 34, "Mouse");
+        update(connection, 10, "Mouse' or ''='");
+
+        //updateWithInjection(connection, 10, "Mouse' or ''='");
+
+        delete(connection, "name1");
+        delete(connection, "name2");
+        delete(connection, "name3");
+
         read(connection);
 
         connection.close();
@@ -30,6 +37,7 @@ public class DatabaseMain {
 
         statement.executeUpdate();
         statement.close();
+
     }
 
     private static void update(Connection connection, int price, String name) throws SQLException {
@@ -37,20 +45,25 @@ public class DatabaseMain {
 
         PreparedStatement statement = connection.prepareStatement(sql);
 
+
         statement.setInt(1, price);
         statement.setString(2, name);
 
         statement.executeUpdate();
+
+        System.out.println(statement.toString());
         statement.close();
     }
 
     private static void updateWithInjection(Connection connection, int newPrice, String name) throws SQLException {
         Statement statement = connection.createStatement();
         String sql = "UPDATE store SET price = " + newPrice + " WHERE name = '" + name + "'";
-        System.out.println("Update command: " + sql);
+        System.out.println("update command: " + sql);
 
         statement.executeUpdate(sql);
+
         statement.close();
+
     }
 
     private static void read(Connection connection) throws SQLException {
@@ -62,8 +75,7 @@ public class DatabaseMain {
             String name = resultSet.getString("name");
             String category = resultSet.getString("category");
             Integer price = resultSet.getInt("price");
-
-            Product product = new Product(name, category, price);
+            Product product = new Product(name, category, price, null);
             System.out.println(product);
         }
 

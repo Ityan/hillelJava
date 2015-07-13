@@ -13,6 +13,8 @@ public class GameBuilder implements Serializable{
 
     private Personage player1;
     private Personage player2;
+    private boolean p1ReadyToAttack = true;
+    private boolean p2ReadyToAttack = false;
 
     private Properties properties;
     private String filePath = "HomeWork\\src\\lesson_7\\RPG_Swing\\resources\\";
@@ -142,5 +144,21 @@ public class GameBuilder implements Serializable{
 
     public Personage getPlayer2() {
         return player2;
+    }
+
+    public boolean isP1ReadyToAttack() {
+        return p1ReadyToAttack;
+    }
+
+    public boolean isP2ReadyToAttack() {
+        return p2ReadyToAttack;
+    }
+
+    public void setP1ReadyToAttack(boolean p1ReadyToAttack) {
+        this.p1ReadyToAttack = p1ReadyToAttack;
+    }
+
+    public void setP2ReadyToAttack(boolean p2ReadyToAttack) {
+        this.p2ReadyToAttack = p2ReadyToAttack;
     }
 }

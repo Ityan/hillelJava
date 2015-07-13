@@ -1,11 +1,18 @@
-package lesson_7.RPG_Swing;
+package lesson_7.client_server.test;
+
+import lesson_7.client_server.game.GameBuilder;
+import lesson_7.client_server.game.Personage;
 
 import javax.swing.*;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
 
 /**
  * @author ITyan on 03.06.2015.
  */
-public class Main extends JFrame {
+public class Client extends JFrame {
 
     private JPanel panel;
     private JProgressBar health1;
@@ -16,9 +23,27 @@ public class Main extends JFrame {
     private JLabel label2;
     private JLabel historyLabel;
 
-    private GameBuilder game = new GameBuilder();
+    private GameBuilder game;
 
-    public Main() {
+    private static final String HOST = "localhost";
+    private static final int PORT = 5678;
+
+    private ObjectOutputStream outputStream;
+    private ObjectInputStream inputStream;
+
+    private Socket socket;
+
+    public Client() {
+
+        try {
+            socket = new Socket(HOST, PORT);
+            outputStream = new ObjectOutputStream(socket.getOutputStream());
+            inputStream = new ObjectInputStream(socket.getInputStream());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        take();
+
         setContentPane(panel);
         setTitle("SIMPLE RPG");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -34,7 +59,25 @@ public class Main extends JFrame {
     }
 
     public static void main(String[] args) {
-        new Main();
+        new Client();
+    }
+
+    private void send(GameBuilder game) {
+        try {
+            outputStream.writeObject(game);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void take() {
+        try {
+            game = (GameBuilder) inputStream.readObject();
+            repaint();
+            System.out.println(game);
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void attack() {
@@ -70,6 +113,8 @@ public class Main extends JFrame {
             JOptionPane.showMessageDialog(null, attackingPers.getName() + " - WIN!");
             System.exit(EXIT_ON_CLOSE);
         }
+        send(game);
+        take();
     }
 
     private void initMenuBar() {

@@ -1,5 +1,7 @@
 package com.hillel.java.sockets;
 
+import com.hillel.java.pattern.strategy.Main;
+
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -24,7 +26,7 @@ public class Client {
     }
 
     public void send(String line) throws IOException {
-        Socket socket = new Socket("192.168.0.112", 3111);
+        Socket socket = new Socket("192.168.0.104", 3111);
         PrintWriter writer = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
         writer.println(line);
 
