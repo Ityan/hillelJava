@@ -1,14 +1,11 @@
-package com.hillel.java.pattern.model_view_controler;
+package lesson_7.rpg_MVC;
 
 /**
- * Created by ITyan on 16.07.2015.
+ * Created by Igor on 22.07.2015.
  */
-public class Main {
-
+public class GameMain {
     public static void main(String[] args) {
         Model model = new Model();
         Controller controller = new Controller(model);
-
     }
-
 }
