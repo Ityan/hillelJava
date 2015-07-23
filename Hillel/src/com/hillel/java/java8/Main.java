@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.UnaryOperator;
 
 /**
  * Created by ITyan on 20.07.2015.
@@ -20,6 +22,44 @@ public class Main {
         apples.add(new Apple(130, "Green"));
         apples.add(new Apple(150, "Red"));
 
+
+        Function<String, String> addHeader = s -> "Hello, " + s;
+        UnaryOperator<String> addFooter = s -> s + " Igor";
+        Function<String, String> replaceMisprints = s -> s.replace("javav", "java");
+
+        Function<String, String> textProcessor = addHeader.andThen(addFooter).andThen(replaceMisprints);
+        System.out.println(textProcessor.apply("I'm learning javav8"));
+
+        textProcessor = addHeader.compose(addFooter).compose(replaceMisprints);
+
+    }
+
+    private static void composingPredicats(List<Apple> apples) {
+        Predicate<Apple> isGreen = apple -> apple.getColor().equals("Green");
+        Predicate<Apple> isHeavy = apple -> apple.getWeight() > 120;
+        Predicate<Apple> isHeavyAndGreen = isGreen.and(isHeavy);
+        List<Apple> greenAndHeavyApples = filter(apples, isHeavyAndGreen);
+
+        greenAndHeavyApples.forEach(System.out::println);
+    }
+
+    private static void replaceApplesWithTwiceLighter(List<Apple> apples) {
+        UnaryOperator<Apple> appleReplacer = apple -> new Apple(apple.getWeight() / 2, apple.getColor());
+        apples.replaceAll(appleReplacer);
+
+        apples.replaceAll(apple -> new Apple(apple.getWeight() / 2, apple.getColor()));
+    }
+
+    private static void replacingConsumerByMethodRef(List<Apple> apples) {
+        for (Apple apple : apples) {
+            System.out.println(apple);
+        }
+
+        apples.forEach(apple -> System.out.println(apple));
+        apples.forEach(System.out::println);
+    }
+
+    private static void comparingUsingLambdas(List<Apple> apples) {
         Comparator<Apple> appleComparator = Main::compareApplesByWeight;
 
         appleComparator = (Apple o1, Apple o2) -> Integer.compare(o1.getWeight(), o2.getWeight());
@@ -27,7 +67,6 @@ public class Main {
         apples.sort(appleComparator);
 
         System.out.println(apples);
-
     }
 
     public static int compareApplesByWeight(Apple o1, Apple o2) {
@@ -79,16 +118,16 @@ public class Main {
         return apple.getWeight() > 120 && "Green".equals(apple.getColor());
     }
 
-    private static <T> List<T> filter(List<T> apples, Predicate<T> predicate) {
-        List<T> greenApples;
-        greenApples = new ArrayList<>();
+    private static <T> List<T> filter(List<T> items, Predicate<T> predicate) {
+        List<T> filteredItems;
+        filteredItems = new ArrayList<>();
 
-        for (T apple : apples) {
-            if (predicate.test(apple)) {
-                greenApples.add(apple);
+        for (T i : items) {
+            if (predicate.test(i)) {
+                filteredItems.add(i);
             }
         }
-        return greenApples;
+        return filteredItems;
     }
 
     private static List<Apple> filterGreenApples(List<Apple> apples) {
@@ -116,7 +155,19 @@ public class Main {
     }
 
     private static void java8StyleSort(List<Apple> apples) {
+        Comparator<Apple> weightComparator = (Apple o1, Apple o2) -> Integer.compare(o1.getWeight(), o2.getWeight());
+        weightComparator = Main::compareApplesByWeight;
+
+        Comparator<Apple> colorComparator = Comparator.comparing(apple -> apple.getColor());
+        colorComparator = Comparator.comparing(Apple::getColor);
+
+        Comparator<Apple> compareByWeightThenByColor = weightComparator.thenComparing(colorComparator);
+
         apples.sort(Comparator.comparingInt(Apple::getWeight).reversed());
+
+        apples.sort(compareByWeightThenByColor);
+
+        apples.forEach(System.out::println);
     }
 
     private static void oldStyleSort(List<Apple> apples) {
