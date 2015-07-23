@@ -31,7 +31,6 @@ public class View extends JFrame implements GameObserver{
         setSize(600, 400);
         setLocationRelativeTo(null);
 
-
         initBtn1();
         initBtn2();
         updateFrame();
@@ -73,10 +72,11 @@ public class View extends JFrame implements GameObserver{
         historyLabel.setText(model.getHistoryText());
 
         controller.checkGameOver();
-        if (model.isDead()) {
-            historyLabel.setText(model.getHistoryText());
-            JOptionPane.showMessageDialog(null, model.getEndGameMessage());
-            System.exit(EXIT_ON_CLOSE);
-        }
+    }
+
+    public void endGame(){
+        historyLabel.setText(model.getHistoryText());
+        JOptionPane.showMessageDialog(null, model.getEndGameMessage());
+        System.exit(EXIT_ON_CLOSE);
     }
 }

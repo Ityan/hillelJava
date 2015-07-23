@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Igor on 22.07.2015.
+ * @author ITyan on 22.07.2015.
  */
 public class Model {
 
@@ -35,9 +35,7 @@ public class Model {
     }
 
     public void notifyGameObservers() {
-        for (GameObserver g : gameObservers) {
-            g.gameChanged();
-        }
+        gameObservers.forEach(GameObserver::gameChanged);
     }
 
     public void player1Attack() {
@@ -104,22 +102,12 @@ public class Model {
     }
 
     public void gameOver() {
-        if (isDead) {
-            historyText = "END GAME";
-            if (game.getPlayer1().isDead()) {
-                endGameMessage = game.getPlayer2().getName() + " - WIN!";
-            }
-            if (game.getPlayer2().isDead()) {
-                endGameMessage = game.getPlayer1().getName() + " - WIN!";
-            }
+        historyText = "END GAME";
+        if (game.getPlayer1().isDead()) {
+            endGameMessage = game.getPlayer2().getName() + " - WIN!";
         }
-    }
-
-    public int getMaxHealth1() {
-        return game.getPlayer1().getMaxHealth();
-    }
-
-    public int getMaxHealth2() {
-        return game.getPlayer2().getMaxHealth();
+        if (game.getPlayer2().isDead()) {
+            endGameMessage = game.getPlayer1().getName() + " - WIN!";
+        }
     }
 }

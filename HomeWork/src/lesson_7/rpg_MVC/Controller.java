@@ -30,6 +30,9 @@ public class Controller {
     }
 
     public void checkGameOver() {
-        model.gameOver();
+        if (model.isDead()) {
+            model.gameOver();
+            view.endGame();
+        }
     }
 }
