@@ -1,16 +1,20 @@
 package com.hillel.java.java8;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
- * Created by ITyan on 23.07.2015.
+ * @author ITyan on 23.07.2015.
  */
 public class MainStream {
 
+    /**
+     * this is main method
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         List<Apple> apples = new ArrayList<>();
 
@@ -24,16 +28,40 @@ public class MainStream {
                 .limit(1)
                 .map(Apple::getColor)
                 .sorted()
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()); //терминальный оператор
+        System.out.println(appleColor);
 
         Optional<String> maxColor = apples.parallelStream()
                 .filter(apple -> apple.getWeight() > 120)
                 .limit(4)
                 .map(Apple::getColor)
                 .sorted()
-                .max(Comparator.naturalOrder());
-
+                .max(Comparator.naturalOrder()); //терминальный оператор
         System.out.println(maxColor.orElse("none"));
+
+        Random random = new Random();
+        int result = Stream.generate(random::nextInt)
+                .limit(10)
+                .mapToInt(value -> value)
+                .min() //терминальный оператор
+                .orElse(0);
+        System.out.println(result);
+
+        System.out.println("Contains at least one green apple: " +
+                        apples.stream()
+                                .anyMatch(apple -> apple.getColor().equals("Green"))
+        );
+
+        Predicate<Apple> isGreen = apple -> apple.getColor().equals("Green");
+        Predicate<Apple> isYellow = apple -> apple.getColor().equals("Yellow");
+        Predicate<Apple> isYellowOrGreen = isYellow.or(isGreen);
+        System.out.println("Contains only green or yellow apples: " +
+                        apples.stream()
+                                .anyMatch(isYellowOrGreen)
+        );
+
+        apples.stream().forEach(System.out::println);
     }
+
 
 }

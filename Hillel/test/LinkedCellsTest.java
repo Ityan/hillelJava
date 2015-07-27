@@ -11,7 +11,7 @@ public class LinkedCellsTest {
         LinkedCells list = new LinkedCells();
         System.out.println("Empty list: " + list);
 
-        list.add("A");
+        list.add("Asdjsg");
         System.out.println("One element list: " + list);
 
         list.add("B");

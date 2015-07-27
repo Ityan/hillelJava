@@ -29,7 +29,7 @@ public class StringArrayTest {
     @Test
     public void sizeTest() {
         StringArray array = new StringArray();
-        array.add("A");
+        array.add("Asdjsg");
         array.add("B");
         array.add("B");
 
